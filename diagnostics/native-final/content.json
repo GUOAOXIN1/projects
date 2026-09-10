@@ -1,0 +1,521 @@
+[
+  {
+    "n": 7,
+    "title": "From Target Chemistry to AI-Assisted PD",
+    "bullets": [
+      "Use what you know about target structure and chemical recognition.",
+      "Ask how AI helps choose molecules and the experiments that test them."
+    ],
+    "key": "af3_intro",
+    "caption": "Published AF3 complexes: different molecules require different recognition models.",
+    "source": "Abramson et al., Nature 630, 493–500 (2024).",
+    "notes": "Connect to prior target classes without reteaching the pharmacology chapters. These are published predictions, not calculations made for this lesson.",
+    "layout": "wide"
+  },
+  {
+    "n": 8,
+    "title": "Follow a Drug–Target Research Question",
+    "bullets": [
+      "Define the interaction or effect before choosing a tool.",
+      "Move from a target to a testable chemical decision."
+    ],
+    "key": null,
+    "caption": "Target → structure → candidates → experiments → next decision.",
+    "source": "Teaching workflow.",
+    "notes": "",
+    "layout": "workflow"
+  },
+  {
+    "n": 9,
+    "title": "AI Tools for Pharmacodynamic Research",
+    "bullets": [
+      "Choose by the question, the available data and the meaning of the output."
+    ],
+    "key": null,
+    "caption": "Examples of useful research tools—not a popularity or performance ranking.",
+    "source": "Official documentation and original tool papers; details in notes.",
+    "notes": "\nSources: https://www.nature.com/articles/s41586-024-07487-w ; https://prankweb.cz/ ; https://github.com/gnina/gnina ; https://github.com/jwohlwend/boltz/blob/main/docs/prediction.md ; https://chemprop.readthedocs.io/ ; https://doi.org/10.1186/s13321-024-00812-5 . Tools differ in training needs, licensing and setup.",
+    "layout": "tools"
+  },
+  {
+    "n": 10,
+    "title": "Use Disease Evidence to Prioritize Targets",
+    "bullets": [
+      "Combine disease-related measurements with established biological knowledge.",
+      "AI ranking proposes a target; it does not validate the target."
+    ],
+    "key": "tnik_evidence",
+    "caption": "TNIK study: biological evidence used in target prioritization.",
+    "source": "Ren et al., Nat. Biotechnol. 43, 63–75 (2025; online 2024).",
+    "notes": "Input-evidence panel from the published workflow. Explain genes, proteins and disease associations, not the model architecture.",
+    "layout": "wide"
+  },
+  {
+    "n": 11,
+    "title": "Enzymes: Start from a Real Binding Complex",
+    "bullets": [
+      "Sildenafil–PDE5 provides a known inhibitor and a defined pocket.",
+      "Use that reference to prepare an AI-assisted screening question."
+    ],
+    "key": "pde5_sildenafil",
+    "caption": "Experimental sildenafil–PDE5 structure, PDB 1UDT.",
+    "source": "RCSB PDB 1UDT.",
+    "notes": "Sildenafil was not discovered by the AI methods taught here. This experimental reference is specific to the stated enzyme project.",
+    "layout": "side"
+  },
+  {
+    "n": 12,
+    "title": "Predict a Complex When a Structure Is Missing",
+    "bullets": [
+      "Provide the identities of the interacting molecules.",
+      "Use predicted geometry as a starting hypothesis—not measured activity."
+    ],
+    "key": "af3_fig3",
+    "caption": "AF3 examples include protein–RNA, antibody and small-molecule complexes.",
+    "source": "Abramson et al., Nature 630, 493–500 (2024).",
+    "notes": "Published Figure 3. Blue/green: predicted proteins; orange: predicted ligands/glycans; purple: predicted RNA; grey: experimental comparison. Explain selected examples, not numerical structure metrics.",
+    "layout": "wide"
+  },
+  {
+    "n": 13,
+    "title": "Find Candidate Pockets with P2Rank",
+    "bullets": [
+      "A pocket predictor highlights regions that may bind a ligand.",
+      "Known chemistry and experiments help decide which site matters."
+    ],
+    "key": "dgat2_pocket",
+    "caption": "Published DGAT2 pocket illustration; a candidate region is not a confirmed drug site.",
+    "source": "Tunyasuvunakool et al., Nature 596, 590–596 (2021); P2Rank.",
+    "notes": "The panel concerns DGAT2 and predicted pocket features. P2Rank/PrankWeb proposes binding regions, not affinity or cellular efficacy.",
+    "layout": "side"
+  },
+  {
+    "n": 14,
+    "title": "GPCRs: Choose the Relevant Receptor State",
+    "bullets": [
+      "Active and inactive receptors present different binding environments.",
+      "Choose the state relevant to the prediction and functional assay."
+    ],
+    "key": "gpcr_states",
+    "caption": "β₂-adrenoceptor: inactive and active experimental structures; TM6 highlighted.",
+    "source": "RCSB PDB 2RH1 and 3SN6; Rasmussen et al., Nature 477, 549–555 (2011).",
+    "notes": "Inactive blue; active wheat/orange. The overlay is a comparison of experimental states, not a computed transition or thermodynamic ensemble.",
+    "layout": "side"
+  },
+  {
+    "n": 15,
+    "title": "Give the Tool the Correct Chemical Structure",
+    "bullets": [
+      "Keep connectivity, charge and stereochemistry explicit.",
+      "Adrenaline illustrates why those chemical details cannot be ignored."
+    ],
+    "key": "adrenaline_input",
+    "caption": "R-adrenaline shown with a protonated secondary amine.",
+    "source": "Original chemical illustration; molecular identity checked computationally.",
+    "notes": "The input form is a teaching example. No numerical affinity or activity is assigned.",
+    "layout": "wide"
+  },
+  {
+    "n": 16,
+    "title": "Docking: Propose and Test a Binding Pose",
+    "bullets": [
+      "GNINA can rank proposed ligand arrangements with learned scoring.",
+      "Use this experimental EGFR complex as a reference—not a new prediction."
+    ],
+    "key": "egfr_erlotinib",
+    "caption": "Experimental erlotinib–EGFR reference, PDB 1M17; not a new GNINA result.",
+    "source": "McNutt et al., J. Cheminform. 17, 28 (2025). RCSB PDB 1M17.",
+    "notes": "This defined kinase–inhibitor complex explains what a pose is and what redocking would try to recover. Conventional sampling and AI scoring are different operations.",
+    "layout": "side"
+  },
+  {
+    "n": 17,
+    "title": "Use Chemical Contacts to Inspect a Prediction",
+    "bullets": [
+      "Check whether polar and nonpolar groups face suitable regions.",
+      "A plausible contact pattern is not a measurement of binding strength."
+    ],
+    "key": "hmgr_rosuvastatin",
+    "caption": "Rosuvastatin in the experimental HMG-CoA reductase complex, PDB 1HWL.",
+    "source": "Istvan & Deisenhofer, Science 292, 1160–1164 (2001); PDB 1HWL.",
+    "notes": "The experimental statin complex is used as a chemically specific reference for inspecting model predictions. The drug is not described as AI-discovered.",
+    "layout": "side"
+  },
+  {
+    "n": 18,
+    "title": "Search Beyond the Usual Active Site",
+    "bullets": [
+      "An allosteric ligand can act at a different pocket.",
+      "Specify the intended site when predicting or scoring binding."
+    ],
+    "key": "allosteric_pocket",
+    "caption": "Experimental allosteric inhibitor complex of PI5P4Kγ, PDB 7QIE.",
+    "source": "Abramson et al., Nature 630, 493–500 (2024). RCSB PDB 7QIE.",
+    "notes": "The AF3 paper includes this allosteric-site example. This new rendering uses experimental coordinates; it is not the published AF3 prediction.",
+    "layout": "side"
+  },
+  {
+    "n": 19,
+    "title": "Boltz-2: Read the Right Output",
+    "bullets": [
+      "Structural confidence, binding likelihood and activity estimates are different.",
+      "Validate the particular claim represented by each output."
+    ],
+    "key": null,
+    "caption": "A confident-looking structure is not an experimental binding measurement.",
+    "source": "Boltz-2 original paper and official prediction documentation (2025).",
+    "notes": "Do not teach logarithmic score conversion. Do not rename predicted activity as experimental Kd. Model setup and its documented applicability matter.",
+    "layout": "outputs"
+  },
+  {
+    "n": 20,
+    "title": "Nuclear Receptors: A Pose Does Not Define Function",
+    "bullets": [
+      "Oestradiol and raloxifene stabilize different receptor arrangements.",
+      "An AI binding pose still needs a matching receptor-response assay."
+    ],
+    "key": "er_states",
+    "caption": "Oestrogen receptor comparison: oestradiol blue; raloxifene wheat/orange.",
+    "source": "Brzozowski et al., Nature 389, 753–758 (1997); PDB 1ERE/1ERR.",
+    "notes": "Helix 12 is highlighted. Raloxifene is a selective oestrogen receptor modulator with tissue-dependent effects, not a universal antagonist.",
+    "layout": "side"
+  },
+  {
+    "n": 21,
+    "title": "Covalent Inhibitors: Model the Bound Chemistry",
+    "bullets": [
+      "Ampicillin forms a covalent acyl-enzyme complex with a PBP.",
+      "Use covalent-aware preparation; docking does not predict the reaction."
+    ],
+    "key": "pbp_ampicillin",
+    "caption": "Experimental covalent ampicillin–PBP4 complex, PDB 2EX6.",
+    "source": "Kishida et al., Biochemistry 45, 783–792 (2006). McNutt et al., J. Cheminform. 17, 28 (2025).",
+    "notes": "PBP4 is a cell-wall-remodelling DD-peptidase, not the bifunctional PBP1b. GNINA covalent docking requires the bound form; it does not predict the reaction. Its CNN was not trained on covalent complexes.",
+    "layout": "side"
+  },
+  {
+    "n": 22,
+    "title": "Ion Channels: Flag Possible hERG Blockers",
+    "bullets": [
+      "HERGAI predicts hERG inhibition from molecule–channel information.",
+      "Use the prediction to prioritize electrophysiology tests."
+    ],
+    "key": "herg_channel",
+    "caption": "Experimental hERG channel structure, PDB 5VA1; no blocker pose is asserted.",
+    "source": "Tran-Nguyen et al., J. Cheminform. 17, 110 (2025); PDB 5VA1.",
+    "notes": "hERG is a potassium channel. A blocker prediction is not a probability of clinical arrhythmia. No architecture or threshold calculations are needed.",
+    "layout": "side"
+  },
+  {
+    "n": 23,
+    "title": "Screen Broadly; Test a Manageable Shortlist",
+    "bullets": [
+      "AI-assisted ranking can reduce the number of compounds sent to the laboratory.",
+      "Keep chemically sensible and sufficiently diverse candidates."
+    ],
+    "key": "screening_collection",
+    "caption": "Illustrative candidate collection; no activities or model scores are assigned.",
+    "source": "McNutt et al., J. Cheminform. 17, 28 (2025).",
+    "notes": "The structures are distinct synthetic teaching candidates, not compounds from a claimed experiment.",
+    "layout": "wide"
+  },
+  {
+    "n": 24,
+    "title": "Predict Activity from Measured Examples",
+    "bullets": [
+      "Chemprop can learn a defined activity endpoint from appropriate assay data.",
+      "Test predictions on compounds not used to build the model."
+    ],
+    "key": "assay_examples",
+    "caption": "A structure and an assay result form a learning example.",
+    "source": "Heid et al., J. Chem. Inf. Model. 64, 9–17 (2024).",
+    "notes": "Only an input–output explanation is needed. Chemprop needs relevant data or a suitable existing model; it is not universally pretrained for every target.",
+    "layout": "wide"
+  },
+  {
+    "n": 25,
+    "title": "Small Changes: Theophylline versus Caffeine",
+    "bullets": [
+      "These molecules differ by one methyl group.",
+      "The RNA-recognition example shows why a model must distinguish them."
+    ],
+    "key": "xanthine_pair",
+    "caption": "A theophylline-binding RNA aptamer discriminates against caffeine.",
+    "source": "Zimmermann et al., Nat. Struct. Biol. 4, 644–649 (1997).",
+    "notes": "This is a documented molecular-recognition example, not a new AI prediction or a general rule about methylation.",
+    "layout": "wide"
+  },
+  {
+    "n": 26,
+    "title": "RNA Targets Need RNA-Relevant Models",
+    "bullets": [
+      "SMRTnet combines RNA sequence/secondary structure with the candidate molecule.",
+      "Protein-trained binding predictions should not be transferred to RNA without testing."
+    ],
+    "key": "rna_theophylline",
+    "caption": "Experimental theophylline–RNA aptamer, PDB 1EHT; one NMR model.",
+    "source": "Fei et al., Nat. Biotechnol. (2026), doi:10.1038/s41587-025-02942-z. PDB 1EHT.",
+    "notes": "The specific aptamer illustrates RNA recognition; SMRTnet studied theophylline-related discrimination. This rendering is experimental reference geometry, not a model output.",
+    "layout": "side"
+  },
+  {
+    "n": 27,
+    "title": "Ask AI to Propose New Chemical Ideas",
+    "bullets": [
+      "REINVENT 4 can decorate a scaffold, link fragments or propose new molecules.",
+      "Design goals guide proposals; synthesis and assays determine their value."
+    ],
+    "key": "reinvent_fig4",
+    "caption": "Four molecular-design tasks in REINVENT 4.",
+    "source": "Loeffler et al., J. Cheminform. 16, 20 (2024).",
+    "notes": "Original Figure 4. Explain the chemical changes and fixed starting information; omit neural architectures and optimization equations.",
+    "layout": "wide"
+  },
+  {
+    "n": 28,
+    "title": "Predict a Target Profile, Not Just One Score",
+    "bullets": [
+      "Related proteins and unwanted targets may also interact with the molecule.",
+      "Follow promising predictions with an appropriate target panel."
+    ],
+    "key": "selectivity_panel",
+    "caption": "Hypothetical matched-assay inhibition patterns—not measured candidates.",
+    "source": "Hopkins, Nat. Chem. Biol. 4, 682–690 (2008).",
+    "notes": "Some multi-target effects are useful. Selectivity is not sufficient to establish clinical safety.",
+    "layout": "wide"
+  },
+  {
+    "n": 29,
+    "title": "DNA Targets Need a Relevant Binding Model",
+    "bullets": [
+      "Intercalation and groove binding pose different recognition problems.",
+      "Use DNA-relevant inputs and binding tests—not assumed protein-model transfer."
+    ],
+    "key": "dna_complex",
+    "caption": "Experimental anthracycline–DNA complex, PDB 1D12.",
+    "source": "RCSB PDB 1D12; drug–nucleic-acid recognition context.",
+    "notes": "This extends the previous nucleic-acid course to model choice. No universal AI DNA-affinity tool or sequence selectivity is claimed.",
+    "layout": "side"
+  },
+  {
+    "n": 30,
+    "title": "Check Target Function with Experiments",
+    "bullets": [
+      "A predicted binding arrangement needs independent experimental tests.",
+      "Enzyme and cellular assays test function—not equilibrium binding alone."
+    ],
+    "key": "tnik_binding",
+    "caption": "Ren et al., Figure 2: predicted structures and distinct functional measurements.",
+    "source": "Ren et al., Nat. Biotechnol. 43, 63–75 (2025; online 2024).",
+    "notes": "Figure 2 does not provide the direct SPR binding evidence. The SPR experiment is Extended Data Figure 3a. The displayed data concern TNIK enzymatic inhibition and cellular functional readouts.",
+    "layout": "wide"
+  },
+  {
+    "n": 31,
+    "title": "Use Cell Images to Measure the Response",
+    "bullets": [
+      "Images capture changes in cell shape and internal organization.",
+      "AI-assisted image analysis needs controls and a clearly defined biological question."
+    ],
+    "key": "cellpaint_fig1",
+    "caption": "Published Cell Painting example; images are experimental inputs.",
+    "source": "Chandrasekaran et al., Nat. Methods 21, 1114–1121 (2024).",
+    "notes": "Do not describe a fluorescence image as a direct binding assay or infer an unstated cell identity. Cell Painting and image segmentation are not equivalent to target identification.",
+    "layout": "wide"
+  },
+  {
+    "n": 32,
+    "title": "Work Backwards from an Unexplained Cell Effect",
+    "bullets": [
+      "Compare the compound’s profile with well-characterized references.",
+      "A similar pattern suggests a mechanism to test, not a proven shared target."
+    ],
+    "key": "profile_comparison",
+    "caption": "Simulated profiles show how reference matching can generate a hypothesis.",
+    "source": "Chandrasekaran et al., Nat. Methods 21, 1114–1121 (2024).",
+    "notes": "Transcriptomic and morphological profiles are complementary sources, not mandatory sequential stages. Distinguish shared stress from shared target action.",
+    "layout": "wide"
+  },
+  {
+    "n": 33,
+    "title": "Let Experiments Change the Next Design",
+    "bullets": [
+      "Use both successful and unsuccessful compounds to refine the next choice.",
+      "The best next experiment may test a new chemical idea, not the highest score."
+    ],
+    "key": null,
+    "caption": "Design → make → test → learn: AI supports the experimental cycle.",
+    "source": "Loeffler et al., J. Cheminform. 16, 20 (2024).",
+    "notes": "Do not introduce acquisition functions or claim that synthesis and biological validation have been automated in this teaching example.",
+    "layout": "cycle"
+  },
+  {
+    "n": 34,
+    "title": "Case 1: AI Helped Design TNIK Inhibitors",
+    "bullets": [
+      "After target prioritization, Chemistry42 proposed candidate structures.",
+      "Synthesis and experimental filtering guided candidate selection."
+    ],
+    "key": "tnik_design",
+    "caption": "Published structure-based design inputs and filters—not a fully automated discovery.",
+    "source": "Ren et al., Nat. Biotechnol. 43, 63–75 (2025; online 2024).",
+    "notes": "The approximately eighteen-month milestone was preclinical candidate nomination, not first-in-human testing. It is not a controlled estimate of the time saved by AI.",
+    "layout": "wide"
+  },
+  {
+    "n": 35,
+    "title": "Case 1: Separate Prediction from Measured PD",
+    "bullets": [
+      "The candidate bound TNIK and inhibited the enzyme.",
+      "Cell assays showed fibrosis-related effects; those need mechanistic interpretation."
+    ],
+    "key": "tnik_cell",
+    "caption": "Published cellular assay evidence for INS018_055.",
+    "source": "Ren et al., Nat. Biotechnol. 43, 63–75 (2025; online 2024).",
+    "notes": "Broader kinase activity prevents attributing every cellular effect exclusively to TNIK. A predicted pose is not an experimental co-crystal. No clinical approval is claimed.",
+    "layout": "wide"
+  },
+  {
+    "n": 36,
+    "title": "Case 2: Expand a Fragment into New Candidates",
+    "bullets": [
+      "The published fragment route starts from an antibacterial chemical clue.",
+      "Predicted activity and toxicity help choose compounds for synthesis."
+    ],
+    "key": "antibiotics_workflow",
+    "caption": "Published generative-antibiotic strategy; candidate generation precedes validation.",
+    "source": "Krishnan et al., Cell 188, 5962–5979.e22 (2025).",
+    "notes": "Do not teach VAE, genetic-algorithm or graph-network details. Large computational candidate pools are not experimentally tested compounds.",
+    "layout": "wide"
+  },
+  {
+    "n": 37,
+    "title": "Case 2: Test the Designed Antibiotics",
+    "bullets": [
+      "The full study synthesized 24 compounds; seven were selectively antibacterial.",
+      "The displayed NG series links generated structures to antibacterial tests."
+    ],
+    "key": "antibiotics_evidence",
+    "caption": "Published antibacterial study: chemistry and experiments, not human efficacy.",
+    "source": "Krishnan et al., Cell 188, 5962–5979.e22 (2025).",
+    "notes": "NG1 was investigated against Neisseria gonorrhoeae and DN1 against Staphylococcus aureus. Mechanistic follow-up is not direct proof of a resolved drug–target complex.",
+    "layout": "wide"
+  },
+  {
+    "n": 38,
+    "title": "Case 3: Predict the Receptor, Then Screen Ligands",
+    "bullets": [
+      "AlphaFold2 supplied receptor models; docking selected candidate molecules.",
+      "Experiments checked binding and followed up selected complexes."
+    ],
+    "key": "lyu_cryoem",
+    "caption": "Experimental 5-HT₂A complex from the study’s structural follow-up, PDB 8UWL.",
+    "source": "Lyu et al., Science 384, eadn6354 (2024).",
+    "notes": "The pictured structure is explicitly experimental follow-up. AI predicted the receptor; the screened molecules were not generated by AlphaFold2.",
+    "layout": "side"
+  },
+  {
+    "n": 39,
+    "title": "Case 3: Did Model-Based Screening Help?",
+    "bullets": [
+      "Both predicted-structure and experimental-structure campaigns found binders.",
+      "Similar results in this comparison do not guarantee success on every target."
+    ],
+    "key": "lyu_hit_rates",
+    "caption": "Rounded published hit rates refer to compounds actually tested.",
+    "source": "Lyu et al., Science 384, eadn6354 (2024).",
+    "notes": "The model-based sigma-2 campaign found 64 hits among 119 tested compounds. The roughly 54% versus 51% difference was not significant. Do not claim superiority.",
+    "layout": "wide"
+  },
+  {
+    "n": 40,
+    "title": "Case 4: Use Chemical Clues to Select Antibiotics",
+    "bullets": [
+      "Models learned from antibacterial activity and human-cell toxicity.",
+      "Highlighted substructures helped guide prospective compound selection."
+    ],
+    "key": "wong_fig3",
+    "caption": "Published chemical rationales and candidate scaffolds.",
+    "source": "Wong et al., Nature 626, 177–185 (2024).",
+    "notes": "The source’s real chemical substructures replace unrelated teaching molecules. Explain a rationale as a model-associated chemical clue, not a proven biological mechanism.",
+    "layout": "wide"
+  },
+  {
+    "n": 41,
+    "title": "Case 4: Laboratory Evidence Goes Beyond a Score",
+    "bullets": [
+      "The study experimentally tested 283 selected compounds.",
+      "A discovered chemical class received mechanistic and mouse-infection studies."
+    ],
+    "key": "wong_fig5",
+    "caption": "Published preclinical efficacy evidence; not a human clinical result.",
+    "source": "Wong et al., Nature 626, 177–185 (2024).",
+    "notes": "No claim that all 283 were active. Selected subgroup comparisons were not randomized tests of the value of explainability. Explain the named animal readout simply.",
+    "layout": "wide"
+  },
+  {
+    "n": 42,
+    "title": "Inspect Chemical Validity Before Trusting a Pose",
+    "bullets": [
+      "Check stereochemistry, bond geometry and impossible atomic overlaps.",
+      "High confidence does not replace those chemical checks."
+    ],
+    "key": "chemical_checks",
+    "caption": "Illustrative invalid-versus-valid input checks; not results from a named model.",
+    "source": "Buttenschoen et al., Chem. Sci. 15, 3130–3139 (2024).",
+    "notes": "The illustration is explicitly hypothetical. Do not invent measured benchmark results or attribute a synthetic geometry error to a specific software package.",
+    "layout": "wide"
+  },
+  {
+    "n": 43,
+    "title": "Measure Whether AI Improved the Decision",
+    "bullets": [
+      "Count useful hits among compounds actually tested.",
+      "Compare with a sensible alternative under comparable conditions."
+    ],
+    "key": "hit_comparison",
+    "caption": "Hypothetical example: twenty experimentally tested compounds per group.",
+    "source": "Teaching comparison; no claimed performance for a named model.",
+    "notes": "The 7/20 and 2/20 counts are invented. They illustrate the denominator and do not establish statistical significance.",
+    "layout": "wide"
+  },
+  {
+    "n": 44,
+    "title": "Exercise: Choose the Next EGFR Experiment",
+    "bullets": [
+      "You have an EGFR structure and a shortlist of candidate inhibitors.",
+      "Which tool addresses the pose—and which assay addresses inhibition?"
+    ],
+    "key": "egfr_lapatinib",
+    "caption": "Experimental lapatinib–EGFR complex, PDB 1XKK, as the exercise reference.",
+    "source": "Wood et al., Cancer Res. 64, 6652–6659 (2004); PDB 1XKK.",
+    "notes": "A suitable docking/scoring workflow can propose poses; a kinase assay tests inhibition. Discuss receptor conformation and target selectivity. Lapatinib is not presented as AI-discovered.",
+    "layout": "side"
+  },
+  {
+    "n": 45,
+    "title": "Exercise: What Did an RNA Binding Screen Prove?",
+    "bullets": [
+      "SMRTnet nominated interactions across ten disease-associated RNA targets.",
+      "What additional evidence is needed to connect binding to a cellular effect?"
+    ],
+    "key": "rna_validation",
+    "caption": "Published counts: 190 predicted interactions tested; 40 confirmed by MST.",
+    "source": "Fei et al., Nat. Biotechnol. (2026), doi:10.1038/s41587-025-02942-z.",
+    "notes": "Count interactions, not necessarily unique compounds. Binding validation does not alone establish cellular specificity, causality or therapeutic benefit. Ask for a functional experiment and a specificity control.",
+    "layout": "wide"
+  },
+  {
+    "n": 46,
+    "title": "From Target Knowledge to Better PD Decisions",
+    "bullets": [
+      "Define the target interaction or biological effect.",
+      "Choose a suitable AI tool, inspect the chemistry and test the claim."
+    ],
+    "key": null,
+    "caption": "Chemical knowledge makes AI predictions useful—not automatically true.",
+    "source": "Summary of the cited research examples.",
+    "notes": "Close the link to enzymes, GPCRs, nuclear receptors, ion channels and nucleic acids. Students should name the question, model output and matching experiment.",
+    "layout": "summary"
+  }
+]
