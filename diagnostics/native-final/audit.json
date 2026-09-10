@@ -1,0 +1,81 @@
+{
+  "slides": 40,
+  "numbering": "7–46",
+  "original_six_included": false,
+  "image_slides": 35,
+  "duplicate_image_slide_groups": [],
+  "issues": [],
+  "saved_revision_passes": [
+    {
+      "pass": 1,
+      "description": "Corrected target-specific AI questions and distinguished reference structures from predictions.",
+      "sha256": "14e7802cead060f6bb7c0c9f230ea56d1f81eca77b8b621da130f62c9381e521",
+      "issues": []
+    },
+    {
+      "pass": 2,
+      "description": "Standardized native Arial type, conventional bullets and readable references.",
+      "sha256": "5fdfd10f730c0185f0a1a7ceb10a83bb47b3eab074c37e009187b913ee5c9023",
+      "issues": []
+    },
+    {
+      "pass": 3,
+      "description": "Expanded the figure region and separated it from body text, captions and references.",
+      "sha256": "4cc5ea11fa2170fb58548b9f5b06fb9a4b2d06a66b0d2193443fcc566850c12a",
+      "issues": []
+    },
+    {
+      "pass": 4,
+      "description": "Replaced the misidentified TNIK binding panel and repaired its scientific claim.",
+      "sha256": "7a5392f3f3a095ea5ce9252b5d1f908795cfe2329b449ba9d7e548daebf3481a",
+      "issues": []
+    },
+    {
+      "pass": 5,
+      "description": "Separated TNIK cellular evidence from structural hypotheses and direct-binding evidence.",
+      "sha256": "7a5392f3f3a095ea5ce9252b5d1f908795cfe2329b449ba9d7e548daebf3481a",
+      "issues": []
+    },
+    {
+      "pass": 6,
+      "description": "Tightened unused white margins around structure figures without resampling their embedded pixels.",
+      "sha256": "399eb0318147106f4f9589572f9a3cd327e0bbc173f3f9c54b6441b393ba496a",
+      "issues": []
+    },
+    {
+      "pass": 7,
+      "description": "Updated explanatory notes and removed obsolete unverified-panel instructions.",
+      "sha256": "7d00224ac4984f9bbff4be6f0f758575cd05fbd5d6a3c3cab1a8612dbe4118bc",
+      "issues": []
+    },
+    {
+      "pass": 8,
+      "description": "Checked native-label consistency across tables, workflows and molecular examples.",
+      "sha256": "7d00224ac4984f9bbff4be6f0f758575cd05fbd5d6a3c3cab1a8612dbe4118bc",
+      "issues": []
+    },
+    {
+      "pass": 9,
+      "description": "Checked white backgrounds and predictable text-box insets.",
+      "sha256": "7d00224ac4984f9bbff4be6f0f758575cd05fbd5d6a3c3cab1a8612dbe4118bc",
+      "issues": []
+    },
+    {
+      "pass": 10,
+      "description": "Verified package consistency, source-image uniqueness, font sizes and slide boundaries.",
+      "sha256": "7d00224ac4984f9bbff4be6f0f758575cd05fbd5d6a3c3cab1a8612dbe4118bc",
+      "issues": []
+    }
+  ],
+  "source_evidence": [
+    {
+      "figure": 9,
+      "status": "unavailable"
+    },
+    {
+      "figure": 10,
+      "status": "unavailable"
+    }
+  ],
+  "visual_review": "Fresh PNG rendering is generated separately. No claim of a completed human/model visual review."
+}
