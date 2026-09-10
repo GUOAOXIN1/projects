@@ -1,0 +1,61 @@
+name: Public structure illustrations
+on:
+  push:
+    paths: ['.github/workflows/public-structure-illustrations.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  render:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - name: Install rendering libraries
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends python3-pymol python3-requests python3-pil
+      - name: Render only publicly deposited structures
+        run: |
+          /usr/bin/python3 - <<'PY'
+          from pathlib import Path
+          import requests, json
+          import pymol
+          from pymol import cmd
+          out=Path('public-structures');out.mkdir()
+          provenance=[]
+          pymol.finish_launching(['pymol','-cq'])
+          for pdb,lig,mode in [('1HWL','FBI','pocket'),('4GIH','0X5','pocket'),('5VA1',None,'channel')]:
+              u='https://files.rcsb.org/download/'+pdb+'.pdb'
+              r=requests.get(u,timeout=40);r.raise_for_status();f=out/(pdb+'.pdb');f.write_bytes(r.content)
+              cmd.reinitialize();cmd.load(str(f),'structure');cmd.remove('solvent');cmd.hide('everything')
+              cmd.bg_color('white');cmd.set('orthoscopic',1);cmd.set('ray_opaque_background',1)
+              cmd.set('antialias',2);cmd.set('ray_shadows',0);cmd.set('specular',0.18)
+              cmd.set('cartoon_fancy_helices',1);cmd.set('cartoon_sampling',14);cmd.set('stick_radius',0.17)
+              cmd.set_color('mutedblue',[0.55,0.69,0.79]);cmd.set_color('mutedgreen',[0.58,0.73,0.68]);cmd.set_color('ligandviolet',[0.52,0.31,0.67])
+              if mode=='pocket':
+                  cmd.select('lig0','resn '+lig);m=cmd.get_model('lig0');a=m.atom[0]
+                  cmd.select('ligand',f'resn {lig} and chain {a.chain} and resi {a.resi}')
+                  cmd.select('pocket','byres (polymer.protein within 5.5 of ligand)')
+                  cmd.select('context','byres (polymer.protein within 11 of ligand)')
+                  cmd.show('cartoon','context');cmd.color('mutedblue','context')
+                  cmd.show('sticks','pocket');cmd.color('mutedgreen','pocket and elem C')
+                  cmd.show('sticks','ligand');cmd.show('spheres','ligand');cmd.set('sphere_scale',0.21,'ligand');cmd.color('ligandviolet','ligand and elem C')
+                  cmd.color('red','(pocket or ligand) and elem O');cmd.color('blue','(pocket or ligand) and elem N');cmd.color('yelloworange','(pocket or ligand) and elem S');cmd.color('palegreen','ligand and elem Cl+F')
+                  cmd.distance('polar_contacts','ligand','pocket',mode=2,cutoff=3.6);cmd.hide('labels','polar_contacts');cmd.set('dash_color','grey50');cmd.set('dash_width',2)
+                  cmd.orient('pocket or ligand');cmd.zoom('ligand',7)
+              else:
+                  cmd.show('cartoon','polymer.protein')
+                  chains=cmd.get_chains('polymer.protein')
+                  for chain,col in zip(chains,['mutedblue','mutedgreen','wheat','lightpink']):cmd.color(col,'chain '+chain)
+                  cmd.show('spheres','resn K');cmd.set('sphere_scale',0.5,'resn K');cmd.color('violet','resn K')
+                  cmd.orient('polymer.protein');cmd.zoom('polymer.protein',2)
+              cmd.png(str(out/(pdb+'.png')),width=2800,height=2100,dpi=300,ray=1)
+              provenance.append({'file':pdb+'.png','source':u,'data':'experimental coordinates; no new AI prediction','ligand_resname':lig})
+          (out/'provenance.json').write_text(json.dumps(provenance,indent=2))
+          PY
+      - name: Export public structure figures
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: public-structure-illustrations
+          path: public-structures/
+          retention-days: 3
