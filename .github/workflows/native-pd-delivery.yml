@@ -1,0 +1,30 @@
+name: Export native PowerPoint result
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/native-pd-delivery.yml'
+permissions:
+  contents: write
+  actions: read
+jobs:
+  export:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - name: Export the actual corrected public-source teaching PowerPoint
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          node <<'JS'
+          const fs=require('fs'),cp=require('child_process'),crypto=require('crypto');
+          const token=process.env.GH_TOKEN,repo=process.env.GITHUB_REPOSITORY;
+          const headers={Authorization:'Bearer '+token,'X-GitHub-Api-Version':'2022-11-28'};
+          async function get(url){const r=await fetch(url,{headers});if(!r.ok)throw Error(r.status+' '+url);return r;}
+          async function put(path,bytes){const url='https://api.github.com/repos/'+repo+'/contents/'+path;const r=await fetch(url,{headers});let sha;if(r.ok)sha=(await r.json()).sha;const w=await fetch(url,{method:'PUT',headers:{...headers,'Content-Type':'application/json'},body:JSON.stringify({message:'Export corrected public-source PowerPoint teaching section',content:bytes.toString('base64'),...(sha?{sha}:{})})});if(!w.ok)throw Error('Export failed '+w.status+' '+await w.text());}
+          (async()=>{let artifact;for(let k=0;k<24;k++){const data=await (await get('https://api.github.com/repos/'+repo+'/actions/artifacts?per_page=100')).json();artifact=data.artifacts.find(a=>a.name==='AI-PD-Native-Revised-PowerPoint'&&!a.expired);if(artifact)break;await new Promise(r=>setTimeout(r,15000));}if(!artifact)throw Error('No successful native corrected artifact; refusing to export an older draft');
+          const data=Buffer.from(await (await get(artifact.archive_download_url)).arrayBuffer());fs.writeFileSync('/tmp/revised.pptx',data);cp.execFileSync('unzip',['-t','/tmp/revised.pptx']);const xml=cp.execFileSync('unzip',['-p','/tmp/revised.pptx','ppt/presentation.xml'],{encoding:'utf8'});const count=(xml.match(/<p:sldId\b/g)||[]).length;if(count!==40)throw Error('Unexpected teaching-slide count '+count);
+          await put('delivery/AI_in_Pharmacodynamics_Revised_Teaching_Section.pptx',data);
+          const record={file:'AI_in_Pharmacodynamics_Revised_Teaching_Section.pptx',slides:40,numbered_slides:'7–46',original_six_slides_included:false,source_artifact_id:artifact.id,sha256:crypto.createHash('sha256').update(data).digest('hex'),status:'Native OOXML corrections exported. This file is the replacement teaching section, not the combined 46-slide presentation. No assertion of complete visual sign-off.'};await put('delivery/status.json',Buffer.from(JSON.stringify(record,null,2)));console.log(JSON.stringify(record));
+          })().catch(e=>{console.error(e);process.exit(1)});
+          JS
