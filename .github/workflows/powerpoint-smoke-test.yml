@@ -1,0 +1,86 @@
+name: Synthetic PowerPoint smoke test
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/powerpoint-smoke-test.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  powerpoint-test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Install local rendering tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends libreoffice-impress python3-venv
+          python3 -m venv /tmp/ppt-smoke-venv
+          /tmp/ppt-smoke-venv/bin/pip install --quiet python-pptx Pillow PyMuPDF
+      - name: Create and edit only synthetic slides
+        run: |
+          /tmp/ppt-smoke-venv/bin/python - <<'PY'
+          import hashlib, json, zipfile
+          from pathlib import Path
+          from PIL import Image, ImageDraw
+          from pptx import Presentation
+          from pptx.util import Inches, Pt
+          from pptx.dml.color import RGBColor
+
+          out = Path('synthetic-output')
+          out.mkdir()
+          image = Image.new('RGB', (1600, 900), 'white')
+          draw = ImageDraw.Draw(image)
+          draw.rectangle((180, 180, 660, 720), outline='navy', width=12)
+          draw.ellipse((940, 180, 1420, 720), outline='darkgreen', width=12)
+          image.save(out / 'dummy-figure.png')
+          p = Presentation()
+          p.slide_width, p.slide_height = Inches(10), Inches(7.5)
+          for title in ['Protected dummy slide', 'Original dummy slide']:
+              slide = p.slides.add_slide(p.slide_layouts[6])
+              box = slide.shapes.add_textbox(Inches(.5), Inches(.3), Inches(9), Inches(.6))
+              run = box.text_frame.paragraphs[0].add_run()
+              run.text = title
+              run.font.name = 'Arial'
+              run.font.size = Pt(24)
+              run.font.color.rgb = RGBColor(180, 0, 0)
+              slide.shapes.add_picture(str(out / 'dummy-figure.png'), Inches(.5), Inches(1.4), width=Inches(9))
+          p.save(out / 'original-dummy.pptx')
+          edited = Presentation(out / 'original-dummy.pptx')
+          edited.slides[1].shapes[0].text_frame.paragraphs[0].runs[0].text = 'Edited dummy slide'
+          edited.save(out / 'edited-dummy.pptx')
+          with zipfile.ZipFile(out / 'original-dummy.pptx') as a, zipfile.ZipFile(out / 'edited-dummy.pptx') as b:
+              assert a.read('ppt/slides/slide1.xml') == b.read('ppt/slides/slide1.xml')
+              media = [n for n in a.namelist() if n.startswith('ppt/media/')]
+              assert media and all(a.read(n) == b.read(n) for n in media)
+              assert b'Edited dummy slide' in b.read('ppt/slides/slide2.xml')
+          (out / 'verification.json').write_text(json.dumps({'import_edit_export': 'passed', 'protected_slide_xml': 'identical', 'embedded_image_bytes': 'identical', 'content': 'synthetic only; no user documents'}, indent=2))
+          PY
+      - name: Render edited PowerPoint and inspect output
+        run: |
+          libreoffice -env:UserInstallation=file:///tmp/lo-ppt-smoke --headless --convert-to pdf --outdir synthetic-output synthetic-output/edited-dummy.pptx
+          /tmp/ppt-smoke-venv/bin/python - <<'PY'
+          import json, os
+          from pathlib import Path
+          import fitz
+          out = Path('synthetic-output')
+          pdf = fitz.open(out / 'edited-dummy.pdf')
+          assert len(pdf) == 2
+          assert 'Edited dummy slide' in pdf[1].get_text()
+          for i, page in enumerate(pdf, 1):
+              page.get_pixmap(matrix=fitz.Matrix(1.5, 1.5)).save(out / f'preview-{i}.png')
+          data = json.loads((out / 'verification.json').read_text())
+          data.update(pdf_render='passed', pdf_pages=2, edited_title_present=True)
+          (out / 'verification.json').write_text(json.dumps(data, indent=2))
+          Path(os.environ['GITHUB_STEP_SUMMARY']).write_text('## Synthetic PowerPoint test passed\n\nCreated, imported, edited, exported and rendered a two-slide dummy deck. Protected-slide XML and original embedded image bytes are unchanged. PDF contains the edited title.\n\nOnly synthetic content was used. No course presentations or personal documents were uploaded. This does not validate any separate lecture deck.\n')
+          PY
+      - name: Export synthetic test artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: synthetic-powerpoint-test
+          path: synthetic-output/
+          retention-days: 7
+          if-no-files-found: error
