@@ -1,0 +1,23 @@
+name: Compact source figure coordinates
+on:
+  push:
+    paths: ['.github/workflows/pd-compact-source-locations.yml']
+permissions:
+  contents: write
+jobs:
+  summarize:
+    runs-on: ubuntu-24.04
+    steps:
+      - env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          node --input-type=module <<'JS'
+          const api='https://api.github.com/repos/'+process.env.REPO;const headers={Authorization:'Bearer '+process.env.GH_TOKEN};
+          const r=await fetch(api+'/contents/diagnostics/pd-review/source-panels.json',{headers});if(!r.ok)throw Error(await r.text());
+          const data=JSON.parse(Buffer.from((await r.json()).content,'base64').toString());
+          const lines=Object.values(data.source_images).map(p=>JSON.stringify({name:p.name,size:p.size,words:p.words.map(w=>w.t+'@'+w.x+','+w.y+'['+w.w+'x'+w.h+']').join(' ')}));
+          const out=api+'/contents/diagnostics/pd-review/panel-locations.jsonl';let sha;const old=await fetch(out,{headers});if(old.ok)sha=(await old.json()).sha;
+          const put=await fetch(out,{method:'PUT',headers:{...headers,'Content-Type':'application/json'},body:JSON.stringify({message:'Record compact coordinates from existing source inspection',content:Buffer.from(lines.join('\n')+'\n').toString('base64'),...(sha?{sha}:{})})});if(!put.ok)throw Error(await put.text());
+          console.log('Summarized',lines.length,'source figures; no additional OCR or PDF generation.');
+          JS
