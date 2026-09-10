@@ -1,0 +1,130 @@
+name: Finish and verify PowerPoint teaching section
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'pd_finish/**'
+      - '.github/workflows/pd-finished-pptx.yml'
+permissions:
+  contents: write
+  actions: read
+jobs:
+  finish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Install native PowerPoint and direct image-rendering tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends libreoffice-impress python3-uno fonts-liberation2
+          python -m pip install --quiet python-pptx Pillow numpy requests rdkit imagehash lxml
+      - name: Apply scientific and layout corrections
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('pd_finish/finalize_teaching.py')
+          s=p.read_text().replace('sh.top=Inches(7.03);sh.height=Inches(.43)','sh.top=Inches(7.09);sh.height=Inches(.38)')
+          p.write_text(s)
+          PY
+          python pd_finish/finalize_teaching.py
+      - name: Render all slides directly to PNG and SVG
+        run: |
+          /usr/bin/python3 - <<'PY'
+          import json,time,subprocess,re,sys
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          import uno
+          from com.sun.star.beans import PropertyValue
+          root=Path('pd-finished').resolve();src=root/'output/AI_in_PD_Unique_Figures_Teaching_7-46.pptx';out=root/'review';out.mkdir(exist_ok=True)
+          def pv(n,v):
+              p=PropertyValue();p.Name=n;p.Value=v;return p
+          proc=subprocess.Popen(['soffice','-env:UserInstallation=file:///tmp/pd-direct-render','--headless','--invisible','--nodefault','--norestore','--nofirststartwizard','--accept=socket,host=127.0.0.1,port=2013;urp;StarOffice.ComponentContext'],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+          local=uno.getComponentContext();resolver=local.ServiceManager.createInstanceWithContext('com.sun.star.bridge.UnoUrlResolver',local)
+          context=None
+          for k in range(45):
+              try:context=resolver.resolve('uno:socket,host=127.0.0.1,port=2013;urp;StarOffice.ComponentContext');break
+              except Exception:time.sleep(1)
+          if context is None:raise RuntimeError('LibreOffice socket unavailable')
+          sm=context.ServiceManager;desktop=sm.createInstanceWithContext('com.sun.star.frame.Desktop',context)
+          doc=desktop.loadComponentFromURL(uno.systemPathToFileUrl(str(src)),'_blank',0,(pv('Hidden',True),pv('ReadOnly',True),pv('UpdateDocMode',0)))
+          if doc is None:raise RuntimeError('PPTX failed to import into LibreOffice')
+          pages=doc.getDrawPages();assert pages.getCount()==40
+          specs=json.loads((root/'output/content_manifest.json').read_text());report=json.loads((root/'output/quality_report.json').read_text())
+          missing=[];rendered=[]
+          norm=lambda t:re.sub(r'[^a-z0-9]','',t.lower())
+          for i in range(pages.getCount()):
+              page=pages.getByIndex(i);n=i+7
+              exp=sm.createInstanceWithContext('com.sun.star.drawing.GraphicExportFilter',context);exp.setSourceDocument(page)
+              png=out/f'slide_{n:02}.png'
+              ok=exp.filter((pv('URL',uno.systemPathToFileUrl(str(png))),pv('MediaType','image/png'),pv('FilterData',(pv('PixelWidth',1800),pv('PixelHeight',1350),pv('Translucent',False)))))
+              if not ok or not png.is_file():raise RuntimeError('PNG export failed '+str(n))
+              svg=out/f'slide_{n:02}.svg'
+              ok=exp.filter((pv('URL',uno.systemPathToFileUrl(str(svg))),pv('MediaType','image/svg+xml'),pv('FilterData',(pv('ExportTextAsPath',False),)))))
+              if not ok or not svg.is_file():raise RuntimeError('SVG export failed '+str(n))
+              text=' '.join(ET.parse(svg).getroot().itertext())
+              title=specs[i]['title']
+              if norm(title) not in norm(text):missing.append({'slide':n,'part':'title'})
+              for line in specs[i]['bullets']:
+                  if norm(line) not in norm(text):missing.append({'slide':n,'part':'body','text':line})
+              rendered.append(n)
+          doc.close(True);desktop.terminate();proc.wait(timeout=30)
+          report['rendered_slides']=rendered;report['direct_png_svg_render']=True;report['missing_rendered_title_or_body']=missing
+          report['visual_review_status']='All slides rendered to PNG and SVG; native import and text-content checks passed when missing_rendered_title_or_body is empty. Full-resolution human/model visual inspection is not claimed.'
+          report['pdf_generated']=False
+          (root/'output/quality_report.json').write_text(json.dumps(report,indent=2))
+          assert not missing,missing
+          assert not list(root.rglob('*.pdf'))
+          print('DIRECT_PNG_SVG_RENDER_COMPLETE',len(rendered),'NO_PDF')
+          PY
+      - name: Validate archive and publish the verification record
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          python - <<'PY'
+          import json,os,hashlib,base64,zipfile
+          from pathlib import Path
+          import requests
+          from PIL import Image
+          root=Path('pd-finished');report=json.loads((root/'output/quality_report.json').read_text());ppt=root/'output'/report['file']
+          with zipfile.ZipFile(ppt) as z:
+              assert z.testzip() is None
+              assert '[Content_Types].xml' in z.namelist()
+          blanks=[]
+          for p in sorted((root/'review').glob('slide_*.png')):
+              im=Image.open(p).convert('RGB');assert im.size==(1800,1350),im.size
+              small=im.resize((180,135));nonwhite=sum(max(px)-min(px)>20 or min(px)<230 for px in small.getdata())
+              if nonwhite<250:blanks.append(p.name)
+          assert not blanks,blanks
+          report['blank_rendered_slides']=blanks;report['pptx_sha256']=hashlib.sha256(ppt.read_bytes()).hexdigest();report['file_size']=ppt.stat().st_size
+          (root/'output/quality_report.json').write_text(json.dumps(report,indent=2))
+          payload=json.dumps(report,indent=2).encode();url='https://api.github.com/repos/'+os.environ['REPO']+'/contents/diagnostics/pd-review/delivery-report.json';h={'Authorization':'Bearer '+os.environ['GH_TOKEN']}
+          old=requests.get(url,headers=h,timeout=30);data={'message':'Save actual PowerPoint delivery verification','content':base64.b64encode(payload).decode()}
+          if old.ok:data['sha']=old.json()['sha']
+          r=requests.put(url,headers=h,json=data,timeout=60);r.raise_for_status()
+          print(json.dumps({k:report[k] for k in ['file','slides','first_six_included','image_slides','duplicate_image_slide_groups','direct_png_svg_render','missing_rendered_title_or_body','pdf_generated','pptx_sha256','file_size']},indent=2))
+          PY
+      - name: Export directly usable PowerPoint archive
+        if: success()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: AI-PD-Unique-Figures-Teaching-7-46-PPTX
+          path: pd-finished/pptx-package/
+          include-hidden-files: true
+          retention-days: 14
+          if-no-files-found: error
+      - name: Export revised PowerPoint and render checks
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: AI-PD-Final-Review-Materials
+          path: |
+            pd-finished/output/
+            pd-finished/review/
+          retention-days: 14
+          if-no-files-found: warn
