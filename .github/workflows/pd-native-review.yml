@@ -1,0 +1,67 @@
+name: Inspect recovered PowerPoint with native XML tools
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/pd-native-review.yml'
+permissions:
+  contents: write
+  actions: read
+jobs:
+  inspect:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - name: Install JavaScript archive and image tools
+        run: npm install --no-audit --no-fund adm-zip sharp @xmldom/xmldom
+      - name: Recover existing public-source slides and inspect every page
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          node --input-type=module <<'JS'
+          import fs from 'node:fs';
+          import path from 'node:path';
+          import crypto from 'node:crypto';
+          import AdmZip from 'adm-zip';
+          import sharp from 'sharp';
+          import {DOMParser} from '@xmldom/xmldom';
+          const root='native-review';fs.mkdirSync(root,{recursive:true});
+          const token=process.env.GH_TOKEN,repo=process.env.REPO;
+          const api='https://api.github.com/repos/'+repo;
+          async function get(url){const r=await fetch(url,{headers:{Authorization:'Bearer '+token,Accept:'application/vnd.github+json'}});if(!r.ok)throw Error(r.status+' '+url);return Buffer.from(await r.arrayBuffer());}
+          const inspect=new AdmZip(await get(api+'/actions/artifacts/10145069406/zip'));
+          const z=new AdmZip(await get(api+'/actions/artifacts/10145067518/zip'));
+          if(!z.getEntry('[Content_Types].xml'))throw Error('Not a root OOXML archive');
+          function entryByName(name){const e=inspect.getEntries().find(e=>path.posix.basename(e.entryName)===name);if(!e)throw Error(name+' missing');return inspect.readFile(e);}
+          const report=JSON.parse(entryByName('build_audit.json'));
+          const manifest=JSON.parse(entryByName('content_manifest.json'));
+          const figures=JSON.parse(entryByName('figure_manifest.json'));
+          const slideXml=z.getEntries().filter(e=>/^ppt\/slides\/slide\d+\.xml$/.test(e.entryName)).sort((a,b)=>Number(a.entryName.match(/slide(\d+)\.xml/)[1])-Number(b.entryName.match(/slide(\d+)\.xml/)[1]));
+          const seen=new Map();const pixels=[];
+          for(let i=0;i<slideXml.length;i++){
+            const n=i+1,doc=new DOMParser().parseFromString(z.readAsText(slideXml[i]),'application/xml');
+            const relPath='ppt/slides/_rels/slide'+n+'.xml.rels';
+            const rel=new DOMParser().parseFromString(z.readAsText(relPath),'application/xml');
+            const refs={};for(const r of Array.from(rel.getElementsByTagName('Relationship')))refs[r.getAttribute('Id')]=path.posix.normalize('ppt/slides/'+r.getAttribute('Target'));
+            for(const p of Array.from(doc.getElementsByTagName('p:pic'))){const bl=p.getElementsByTagName('a:blip')[0];if(!bl)continue;const loc=refs[bl.getAttribute('r:embed')];if(!loc||!z.getEntry(loc))continue;const bytes=z.readFile(loc);const hash=crypto.createHash('sha256').update(bytes).digest('hex');const item=seen.get(hash)||[];item.push(i+7);seen.set(hash,item);try{const m=await sharp(bytes).metadata();pixels.push({slide:i+7,width:m.width,height:m.height,hash});}catch{pixels.push({slide:i+7,vector_or_unsupported:true,hash});}}
+          }
+          report.independent_xml_check={slides:slideXml.length,duplicate_image_slide_groups:[...seen.values()].filter(v=>new Set(v).size>1),image_metadata:pixels};
+          report.original_first_six_included=false;
+          report.inspected_source='Previously completed public-source GitHub build; no user source presentations accessed';
+          fs.writeFileSync(root+'/audit-before.json',JSON.stringify(report,null,2));
+          fs.writeFileSync(root+'/content.json',JSON.stringify(manifest,null,2));
+          fs.writeFileSync(root+'/figures.json',JSON.stringify(figures,null,2));
+          async function publish(name,bytes){const url=api+'/contents/diagnostics/pd-review/'+name;let sha;const prior=await fetch(url,{headers:{Authorization:'Bearer '+token}});if(prior.ok)sha=(await prior.json()).sha;const r=await fetch(url,{method:'PUT',headers:{Authorization:'Bearer '+token,'Content-Type':'application/json'},body:JSON.stringify({message:'Publish public-source slide inspection '+name,content:bytes.toString('base64'),...(sha?{sha}:{})})});if(!r.ok)throw Error(await r.text());}
+          await publish('audit-before.json',fs.readFileSync(root+'/audit-before.json'));
+          await publish('content.json',fs.readFileSync(root+'/content.json'));
+          await publish('figures.json',fs.readFileSync(root+'/figures.json'));
+          for(let start=7;start<=46;start+=6){const inputs=[];for(let k=0;k<6&&start+k<=46;k++){const n=start+k;const b=entryByName('slide_'+String(n).padStart(2,'0')+'.png');const resized=await sharp(b).resize(800,600,{fit:'fill'}).png().toBuffer();inputs.push({input:resized,left:(k%2)*812,top:Math.floor(k/2)*612});}const jpg=await sharp({create:{width:1624,height:1836,channels:3,background:'#eeeeee'}}).composite(inputs).jpeg({quality:94}).toBuffer();const name='sheet_'+String(start).padStart(2,'0')+'.jpg';fs.writeFileSync(root+'/'+name,jpg);await publish(name,jpg);}
+          fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY,'Recovered 40 teaching slides, numbered 7–46. Original first six are NOT included. Independently checked image hashes; published rendered contact sheets for visual review. No private source presentation uploaded.');
+          JS
+      - name: Export inspection
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: native-slide-review
+          path: native-review/
+          retention-days: 3
