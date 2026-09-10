@@ -1,0 +1,815 @@
+{
+  "scope": "Public journal/PDB material only. No uploaded course presentations.",
+  "images": [
+    {
+      "file": "1M17_pocket.png",
+      "width": 2400,
+      "height": 1700,
+      "sha256": "b670b40d36a5eea23bc698f78c55f4b05d5f70f04e924269d232d6a734b28499"
+    },
+    {
+      "file": "1UDT_pocket.png",
+      "width": 2400,
+      "height": 1700,
+      "sha256": "3dbc97ea72e6222a704cafaeaa85e4a29140fc345a2544f078a5742d6098f5f9"
+    },
+    {
+      "file": "ER_H12_comparison.png",
+      "width": 2400,
+      "height": 1700,
+      "sha256": "9d27374cecc80c92cd43dd2c1e2d8269e8e0051f2bb03c01afcc2408c93ab69e"
+    },
+    {
+      "file": "af3_fig1.png",
+      "width": 2116,
+      "height": 1639,
+      "sha256": "78ec22c83d34d49a9f87935a1ca1de663a0eadde246269a47f725a2ec3ee9d59"
+    },
+    {
+      "file": "af3_fig3.png",
+      "width": 1413,
+      "height": 780,
+      "sha256": "c269b97fe330fa03fdf019f5b71afa133df031f0f234f4df61d50c9699684a32"
+    },
+    {
+      "file": "antibiotics_fig1.jpg",
+      "width": 2089,
+      "height": 1610,
+      "sha256": "5812c03d9f5c0f606ce537ca21793d6a8529f5cc78d1e6a15140199e65067f62"
+    },
+    {
+      "file": "antibiotics_fig2.jpg",
+      "width": 2089,
+      "height": 1920,
+      "sha256": "985ad24eb46903c0821577b674c3842065004a3e4791ff5629c1983999300d1b"
+    },
+    {
+      "file": "antibiotics_fig3.jpg",
+      "width": 1489,
+      "height": 1800,
+      "sha256": "b7ac5ca14c5a66f6867bcbbdfb20146a686b948083e9e8adbf233b2250c6e069"
+    },
+    {
+      "file": "antibiotics_fig4.jpg",
+      "width": 1660,
+      "height": 1800,
+      "sha256": "6080f0276d506eccdda8f60e893ca05bae8ba92f48af9f67d3dabfdb15f33193"
+    },
+    {
+      "file": "antibiotics_fig5.jpg",
+      "width": 1800,
+      "height": 1289,
+      "sha256": "d6c0033adf8b207e80c5ad45f604082df6e104d53150e90a4a87e6b44b43fd36"
+    },
+    {
+      "file": "antibiotics_fig6.jpg",
+      "width": 1696,
+      "height": 1800,
+      "sha256": "0f83aa1786e5e565b5dc078e07d0edf2029048d829bb59a66ddcadf9272a1c1f"
+    },
+    {
+      "file": "antibiotics_fig7.jpg",
+      "width": 1800,
+      "height": 1071,
+      "sha256": "18c149d094989208c1858c7e993ec2eab6c1f736927413625aa6cf99c22388ac"
+    },
+    {
+      "file": "cellpaint_fig1.png",
+      "width": 1501,
+      "height": 1002,
+      "sha256": "149cfd821ada958da4311da8f73fc4db5ab10ebd6bdd7a6483d7db9a01ca11b7"
+    },
+    {
+      "file": "cellpaint_fig2.png",
+      "width": 750,
+      "height": 884,
+      "sha256": "d817f6ff93300a80b6b599e69bc15d4b11a994daff2750d00c3bdc414a451285"
+    },
+    {
+      "file": "gnina_fig1.png",
+      "width": 875,
+      "height": 640,
+      "sha256": "968dd7917c3e2c8ae76b762d6598f44d0d83480dbafc9e70a260c965774246b4"
+    },
+    {
+      "file": "gnina_fig2.png",
+      "width": 1939,
+      "height": 548,
+      "sha256": "cbdbd7cedc94480546113f0989fe656f9aeb656ef4d9f20c478037131213a49d"
+    },
+    {
+      "file": "gnina_fig4.png",
+      "width": 898,
+      "height": 774,
+      "sha256": "049dc7a3c3449117e72aefdcb1d03676df5e4afe6be6e648cab45a210f8b3754"
+    },
+    {
+      "file": "herg_fig1.png",
+      "width": 1945,
+      "height": 916,
+      "sha256": "6c90b72766d1c66b3ae430900c5e257235378c2ee8f42e1801b987bf111accaf"
+    },
+    {
+      "file": "herg_fig6.png",
+      "width": 1946,
+      "height": 351,
+      "sha256": "8cfae6869cbe0423309b2f1f065e8fb8e3496f9e14fe84dd322f1501d8dab85a"
+    },
+    {
+      "file": "lyu_fig1.jpg",
+      "width": 1781,
+      "height": 1800,
+      "sha256": "d3cc16df77cea8078f9ebbcc1f2cf4fbf35bae2d2241cb0ac5877ca218a9a81b"
+    },
+    {
+      "file": "lyu_fig2.jpg",
+      "width": 1800,
+      "height": 1783,
+      "sha256": "35475d7e7dc949f0bc783830bc6debc7c721e7352f92c35a151c6153d432ace3"
+    },
+    {
+      "file": "lyu_fig3.jpg",
+      "width": 1800,
+      "height": 1786,
+      "sha256": "5f4d0b1da3299e2f98aef84bac521886ff8034603f2cf476e86e8093b0d9e98c"
+    },
+    {
+      "file": "lyu_fig4.jpg",
+      "width": 1800,
+      "height": 1312,
+      "sha256": "ed536a293e619c24659b388fa2a81fea89a03c814fcf29e71cf4c36b56b05858"
+    },
+    {
+      "file": "lyu_fig5.jpg",
+      "width": 1359,
+      "height": 1800,
+      "sha256": "9558f35ffe9fded714a6fc07e49fe8892070f7b83ec22e6dfcddcb7568ee5f89"
+    },
+    {
+      "file": "pockets_fig3.png",
+      "width": 2118,
+      "height": 1605,
+      "sha256": "70673528ee6410362771f502559301027d25ef23016ec219e9f66377fb211cc9"
+    },
+    {
+      "file": "reinvent_fig1.png",
+      "width": 1654,
+      "height": 502,
+      "sha256": "d71a564c29698e158bb1dffabd0e3ca628550cc9a1b38dbfff859d174b0f9b12"
+    },
+    {
+      "file": "reinvent_fig3.png",
+      "width": 1615,
+      "height": 884,
+      "sha256": "bcfc254da9b0d23f06cb445004dc5cf349e1442af7acfc8bccc8800009674d10"
+    },
+    {
+      "file": "reinvent_fig5.png",
+      "width": 1722,
+      "height": 1321,
+      "sha256": "cfe3d2ab2ef98ce98bd94188944e80391a70699416fbe48511d0e3b7a7b72a3c"
+    },
+    {
+      "file": "rna_fig1.png",
+      "width": 1745,
+      "height": 1428,
+      "sha256": "d2474007626f3926bc5f1861c56e78b891d9f83e7daf278e3c570078483d06ff"
+    },
+    {
+      "file": "smrt_fig1.png",
+      "width": 2164,
+      "height": 1531,
+      "sha256": "d8735b63f256b6fac7c6f72773bb109ebbbe4fe7f299995d4f320d2cb039f2b0"
+    },
+    {
+      "file": "smrt_fig3.png",
+      "width": 2169,
+      "height": 1600,
+      "sha256": "b3e0278e7b39227bd82403be7132285849d4bc142ac23231db1574e92da620ee"
+    },
+    {
+      "file": "smrt_fig4.png",
+      "width": 2167,
+      "height": 1039,
+      "sha256": "f82d7c985e225f7bd84fd4e9d884ac7549ec521074624adc37c441942a610783"
+    },
+    {
+      "file": "tnik_fig1.png",
+      "width": 2115,
+      "height": 1118,
+      "sha256": "315da60cf61608048a629b74477b9c6a13984786bad42ec70b795a47244982a8"
+    },
+    {
+      "file": "tnik_fig2.png",
+      "width": 2102,
+      "height": 2129,
+      "sha256": "7e0451192faa4c67b2534f2ddba75880bab66bb9ef31a674f29971e4a29be693"
+    },
+    {
+      "file": "tnik_fig3.png",
+      "width": 2170,
+      "height": 2021,
+      "sha256": "d8b6c3ad08085734ca2fdc78e393c1515de77e08388400dffa2e29118d4aa59a"
+    },
+    {
+      "file": "wong_fig1.png",
+      "width": 2158,
+      "height": 1155,
+      "sha256": "17385e7bdcd577b7eb893709f72a11c20ba7a8bf083960b758779e96ee50afdc"
+    },
+    {
+      "file": "wong_fig2.png",
+      "width": 2135,
+      "height": 822,
+      "sha256": "c439ae1a98af617ade4e7af4aa19e2646d3353acf04e5951c0cd6f03f288ef30"
+    },
+    {
+      "file": "wong_fig3.png",
+      "width": 2124,
+      "height": 883,
+      "sha256": "43c88e4ae33734b7de2537e2e8d48408536f6acdc80badd24476f06ddd978660"
+    },
+    {
+      "file": "wong_fig4.png",
+      "width": 2166,
+      "height": 777,
+      "sha256": "c8b93386ff0bc16c65fa6b9f09a85aadc30b06ace7f62159a18275232cbdf3da"
+    },
+    {
+      "file": "wong_fig5.png",
+      "width": 880,
+      "height": 1034,
+      "sha256": "266107704fa2aa293e39310972ca2477df673e48e1586528748106c9b891325e"
+    }
+  ],
+  "retrieval": [
+    {
+      "file": "af3_fig1.png",
+      "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41586-024-07487-w/MediaObjects/41586_2024_7487_Fig1_HTML.png",
+      "source": "https://doi.org/10.1038/s41586-024-07487-w",
+      "dimensions": [
+        2116,
+        1639
+      ],
+      "bytes": 888640,
+      "sha256": "78ec22c83d34d49a9f87935a1ca1de663a0eadde246269a47f725a2ec3ee9d59",
+      "status": "downloaded"
+    },
+    {
+      "file": "af3_fig3.png",
+      "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41586-024-07487-w/MediaObjects/41586_2024_7487_Fig3_HTML.png",
+      "source": "https://doi.org/10.1038/s41586-024-07487-w",
+      "dimensions": [
+        1413,
+        780
+      ],
+      "bytes": 981813,
+      "sha256": "c269b97fe330fa03fdf019f5b71afa133df031f0f234f4df61d50c9699684a32",
+      "status": "downloaded"
+    },
+    {
+      "file": "af3_fig5.png",
+      "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41586-024-07487-w/MediaObjects/41586_2024_7487_Fig5_HTML.png",
+      "source": "https://doi.org/10.1038/s41586-024-07487-w",
+      "status": "failed",
+      "error": "HTTPSConnectionPool(host='media.springernature.com', port=443): Read timed out. (read timeout=35)"
+    },
+    {
+      "file": "gnina_fig1.png",
+      "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs13321-025-00973-x/MediaObjects/13321_2025_973_Fig1_HTML.png",
+      "source": "https://doi.org/10.1186/s13321-025-00973-x",
+      "dimensions": [
+        875,
+        640
+      ],
+      "bytes": 133653,
+      "sha256": "968dd7917c3e2c8ae76b762d6598f44d0d83480dbafc9e70a260c965774246b4",
+      "status": "downloaded"
+    },
+    {
+      "file": "gnina_fig2.png",
+      "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs13321-025-00973-x/MediaObjects/13321_2025_973_Fig2_HTML.png",
+      "source": "https://doi.org/10.1186/s13321-025-00973-x",
+      "dimensions": [
+        1939,
+        548
+      ],
+      "bytes": 483466,
+      "sha256": "cbdbd7cedc94480546113f0989fe656f9aeb656ef4d9f20c478037131213a49d",
+      "status": "downloaded"
+    },
+    {
+      "file": "gnina_fig4.png",
+      "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs13321-025-00973-x/MediaObjects/13321_2025_973_Fig4_HTML.png",
+      "source": "https://doi.org/10.1186/s13321-025-00973-x",
+      "dimensions": [
+        898,
+        774
+      ],
+      "bytes": 80573,
+      "sha256": "049dc7a3c3449117e72aefdcb1d03676df5e4afe6be6e648cab45a210f8b3754",
+      "status": "downloaded"
+    },
+    {
+      "file": "tnik_fig1.png",
+      "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41587-024-02143-0/MediaObjects/41587_2024_2143_Fig1_HTML.png",
+      "source": "https://doi.org/10.1038/s41587-024-02143-0",
+      "dimensions": [
+        2115,
+        1118
+      ],
+      "bytes": 588513,
+      "sha256": "315da60cf61608048a629b74477b9c6a13984786bad42ec70b795a47244982a8",
+      "status": "downloaded"
+    },
+    {
+      "file": "tnik_fig2.png",
+      "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41587-024-02143-0/MediaObjects/41587_2024_2143_Fig2_HTML.png",
+      "source": "https://doi.org/10.1038/s41587-024-02143-0",
+      "dimensions": [
+        2102,
+        2129
+      ],
+      "bytes": 885398,
+      "sha256": "7e0451192faa4c67b2534f2ddba75880bab66bb9ef31a674f29971e4a29be693",
+      "status": "downloaded"
+    },
+    {
+      "file": "tnik_fig3.png",
+      "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41587-024-02143-0/MediaObjects/41587_2024_2143_Fig3_HTML.png",
+      "source": "https://doi.org/10.1038/s41587-024-02143-0",
+      "dimensions": [
+        2170,
+        2021
+      ],
+      "bytes": 1692087,
+      "sha256": "d8b6c3ad08085734ca2fdc78e393c1515de77e08388400dffa2e29118d4aa59a",
+      "status": "downloaded"
+    },
+    {
+      "file": "wong_fig1.png",
+      "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41586-023-06887-8/MediaObjects/41586_2023_6887_Fig1_HTML.png",
+      "source": "https://doi.org/10.1038/s41586-023-06887-8",
+      "dimensions": [
+        2158,
+        1155
+      ],
+      "bytes": 430780,
+      "sha256": "17385e7bdcd577b7eb893709f72a11c20ba7a8bf083960b758779e96ee50afdc",
+      "status": "downloaded"
+    },
+    {
+      "file": "wong_fig2.png",
+      "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41586-023-06887-8/MediaObjects/41586_2023_6887_Fig2_HTML.png",
+      "source": "https://doi.org/10.1038/s41586-023-06887-8",
+      "dimensions": [
+        2135,
+        822
+      ],
+      "bytes": 482004,
+      "sha256": "c439ae1a98af617ade4e7af4aa19e2646d3353acf04e5951c0cd6f03f288ef30",
+      "status": "downloaded"
+    },
+    {
+      "file": "wong_fig3.png",
+      "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41586-023-06887-8/MediaObjects/41586_2023_6887_Fig3_HTML.png",
+      "source": "https://doi.org/10.1038/s41586-023-06887-8",
+      "dimensions": [
+        2124,
+        883
+      ],
+      "bytes": 264409,
+      "sha256": "43c88e4ae33734b7de2537e2e8d48408536f6acdc80badd24476f06ddd978660",
+      "status": "downloaded"
+    },
+    {
+      "file": "wong_fig4.png",
+      "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41586-023-06887-8/MediaObjects/41586_2023_6887_Fig4_HTML.png",
+      "source": "https://doi.org/10.1038/s41586-023-06887-8",
+      "dimensions": [
+        2166,
+        777
+      ],
+      "bytes": 576005,
+      "sha256": "c8b93386ff0bc16c65fa6b9f09a85aadc30b06ace7f62159a18275232cbdf3da",
+      "status": "downloaded"
+    },
+    {
+      "file": "wong_fig5.png",
+      "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41586-023-06887-8/MediaObjects/41586_2023_6887_Fig5_HTML.png",
+      "source": "https://doi.org/10.1038/s41586-023-06887-8",
+      "dimensions": [
+        880,
+        1034
+      ],
+      "bytes": 64696,
+      "sha256": "266107704fa2aa293e39310972ca2477df673e48e1586528748106c9b891325e",
+      "status": "downloaded"
+    },
+    {
+      "file": "herg_fig1.png",
+      "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs13321-025-01063-8/MediaObjects/13321_2025_1063_Fig1_HTML.png",
+      "source": "https://doi.org/10.1186/s13321-025-01063-8",
+      "dimensions": [
+        1945,
+        916
+      ],
+      "bytes": 876842,
+      "sha256": "6c90b72766d1c66b3ae430900c5e257235378c2ee8f42e1801b987bf111accaf",
+      "status": "downloaded"
+    },
+    {
+      "file": "herg_fig6.png",
+      "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs13321-025-01063-8/MediaObjects/13321_2025_1063_Fig6_HTML.png",
+      "source": "https://doi.org/10.1186/s13321-025-01063-8",
+      "dimensions": [
+        1946,
+        351
+      ],
+      "bytes": 403217,
+      "sha256": "8cfae6869cbe0423309b2f1f065e8fb8e3496f9e14fe84dd322f1501d8dab85a",
+      "status": "downloaded"
+    },
+    {
+      "file": "smrt_fig1.png",
+      "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41587-025-02942-z/MediaObjects/41587_2025_2942_Fig1_HTML.png",
+      "source": "https://doi.org/10.1038/s41587-025-02942-z",
+      "dimensions": [
+        2164,
+        1531
+      ],
+      "bytes": 432748,
+      "sha256": "d8735b63f256b6fac7c6f72773bb109ebbbe4fe7f299995d4f320d2cb039f2b0",
+      "status": "downloaded"
+    },
+    {
+      "file": "smrt_fig3.png",
+      "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41587-025-02942-z/MediaObjects/41587_2025_2942_Fig3_HTML.png",
+      "source": "https://doi.org/10.1038/s41587-025-02942-z",
+      "dimensions": [
+        2169,
+        1600
+      ],
+      "bytes": 653608,
+      "sha256": "b3e0278e7b39227bd82403be7132285849d4bc142ac23231db1574e92da620ee",
+      "status": "downloaded"
+    },
+    {
+      "file": "smrt_fig4.png",
+      "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41587-025-02942-z/MediaObjects/41587_2025_2942_Fig4_HTML.png",
+      "source": "https://doi.org/10.1038/s41587-025-02942-z",
+      "dimensions": [
+        2167,
+        1039
+      ],
+      "bytes": 572625,
+      "sha256": "f82d7c985e225f7bd84fd4e9d884ac7549ec521074624adc37c441942a610783",
+      "status": "downloaded"
+    },
+    {
+      "file": "rna_fig1.png",
+      "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs43588-025-00820-x/MediaObjects/43588_2025_820_Fig1_HTML.png",
+      "source": "https://doi.org/10.1038/s43588-025-00820-x",
+      "dimensions": [
+        1745,
+        1428
+      ],
+      "bytes": 328927,
+      "sha256": "d2474007626f3926bc5f1861c56e78b891d9f83e7daf278e3c570078483d06ff",
+      "status": "downloaded"
+    },
+    {
+      "file": "rna_fig6.png",
+      "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs43588-025-00820-x/MediaObjects/43588_2025_820_Fig6_HTML.png",
+      "source": "https://doi.org/10.1038/s43588-025-00820-x",
+      "status": "failed",
+      "error": "HTTPSConnectionPool(host='media.springernature.com', port=443): Read timed out. (read timeout=35)"
+    },
+    {
+      "file": "reinvent_fig1.png",
+      "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs13321-024-00812-5/MediaObjects/13321_2024_812_Fig1_HTML.png",
+      "source": "https://doi.org/10.1186/s13321-024-00812-5",
+      "dimensions": [
+        1654,
+        502
+      ],
+      "bytes": 123021,
+      "sha256": "d71a564c29698e158bb1dffabd0e3ca628550cc9a1b38dbfff859d174b0f9b12",
+      "status": "downloaded"
+    },
+    {
+      "file": "reinvent_fig3.png",
+      "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs13321-024-00812-5/MediaObjects/13321_2024_812_Fig3_HTML.png",
+      "source": "https://doi.org/10.1186/s13321-024-00812-5",
+      "dimensions": [
+        1615,
+        884
+      ],
+      "bytes": 241201,
+      "sha256": "bcfc254da9b0d23f06cb445004dc5cf349e1442af7acfc8bccc8800009674d10",
+      "status": "downloaded"
+    },
+    {
+      "file": "reinvent_fig5.png",
+      "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs13321-024-00812-5/MediaObjects/13321_2024_812_Fig5_HTML.png",
+      "source": "https://doi.org/10.1186/s13321-024-00812-5",
+      "dimensions": [
+        1722,
+        1321
+      ],
+      "bytes": 461131,
+      "sha256": "cfe3d2ab2ef98ce98bd94188944e80391a70699416fbe48511d0e3b7a7b72a3c",
+      "status": "downloaded"
+    },
+    {
+      "file": "cellpaint_fig1.png",
+      "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41592-024-02241-6/MediaObjects/41592_2024_2241_Fig1_HTML.png",
+      "source": "https://doi.org/10.1038/s41592-024-02241-6",
+      "dimensions": [
+        1501,
+        1002
+      ],
+      "bytes": 1347654,
+      "sha256": "149cfd821ada958da4311da8f73fc4db5ab10ebd6bdd7a6483d7db9a01ca11b7",
+      "status": "downloaded"
+    },
+    {
+      "file": "cellpaint_fig2.png",
+      "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41592-024-02241-6/MediaObjects/41592_2024_2241_Fig2_HTML.png",
+      "source": "https://doi.org/10.1038/s41592-024-02241-6",
+      "dimensions": [
+        750,
+        884
+      ],
+      "bytes": 95103,
+      "sha256": "d817f6ff93300a80b6b599e69bc15d4b11a994daff2750d00c3bdc414a451285",
+      "status": "downloaded"
+    },
+    {
+      "file": "pockets_fig3.png",
+      "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41586-021-03828-1/MediaObjects/41586_2021_3828_Fig3_HTML.png",
+      "source": "https://doi.org/10.1038/s41586-021-03828-1",
+      "dimensions": [
+        2118,
+        1605
+      ],
+      "bytes": 1359151,
+      "sha256": "70673528ee6410362771f502559301027d25ef23016ec219e9f66377fb211cc9",
+      "status": "downloaded"
+    },
+    {
+      "file": "er_fig1.png",
+      "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2F39645/MediaObjects/389753a0_Fig1_HTML.png",
+      "source": "https://doi.org/10.1038/39645",
+      "status": "failed",
+      "error": "404 Client Error: Not Found for url: https://media.springernature.com/full/springer-static/image/art%3A10.1038%2F39645/MediaObjects/389753a0_Fig1_HTML.png"
+    },
+    {
+      "file": "er_fig2.png",
+      "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2F39645/MediaObjects/389753a0_Fig2_HTML.png",
+      "source": "https://doi.org/10.1038/39645",
+      "status": "failed",
+      "error": "HTTPSConnectionPool(host='media.springernature.com', port=443): Read timed out. (read timeout=35)"
+    },
+    {
+      "file": "er_fig3.png",
+      "url": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2F39645/MediaObjects/389753a0_Fig3_HTML.png",
+      "source": "https://doi.org/10.1038/39645",
+      "status": "failed",
+      "error": "404 Client Error: Not Found for url: https://media.springernature.com/full/springer-static/image/art%3A10.1038%2F39645/MediaObjects/389753a0_Fig3_HTML.png"
+    },
+    {
+      "file": "posebusters_fig1.gif",
+      "url": "https://pubs.rsc.org/image/article/2024/SC/d3sc04185a/d3sc04185a-f1.gif",
+      "source": "https://doi.org/10.1039/D3SC04185A",
+      "status": "failed",
+      "error": "403 Client Error: Forbidden for url: https://pubs.rsc.org/image/article/2024/SC/d3sc04185a/d3sc04185a-f1.gif"
+    },
+    {
+      "file": "posebusters_fig3.gif",
+      "url": "https://pubs.rsc.org/image/article/2024/SC/d3sc04185a/d3sc04185a-f3.gif",
+      "source": "https://doi.org/10.1039/D3SC04185A",
+      "status": "failed",
+      "error": "403 Client Error: Forbidden for url: https://pubs.rsc.org/image/article/2024/SC/d3sc04185a/d3sc04185a-f3.gif"
+    },
+    {
+      "file": "1UDT.pdb",
+      "url": "https://files.rcsb.org/download/1UDT.pdb",
+      "source": "https://doi.org/10.2210/pdb1UDT/pdb",
+      "dimensions": null,
+      "bytes": 254016,
+      "sha256": "485a11608fd609ebb380c43a9433730997fdc5808258ba6c9e614d8a60730dc9",
+      "status": "downloaded"
+    },
+    {
+      "file": "1M17.pdb",
+      "url": "https://files.rcsb.org/download/1M17.pdb",
+      "source": "https://doi.org/10.2210/pdb1M17/pdb",
+      "dimensions": null,
+      "bytes": 252720,
+      "sha256": "5b020cd186307d657de80611793554b074f6936a3443d33f81d9b1a58004962e",
+      "status": "downloaded"
+    },
+    {
+      "file": "1ERE.pdb",
+      "url": "https://files.rcsb.org/download/1ERE.pdb",
+      "source": "https://doi.org/10.2210/pdb1ERE/pdb",
+      "dimensions": null,
+      "bytes": 1006101,
+      "sha256": "cfbc26434f1af7328cc024cb6d7a85ce6876a292d64644135126b1466beb7efe",
+      "status": "downloaded"
+    },
+    {
+      "file": "1ERR.pdb",
+      "url": "https://files.rcsb.org/download/1ERR.pdb",
+      "source": "https://doi.org/10.2210/pdb1ERR/pdb",
+      "dimensions": null,
+      "bytes": 353322,
+      "sha256": "8010e3170b85d67d5ba536960339d5e6ed524f5f0dbd2ee31b2d98f8fa06497f",
+      "status": "downloaded"
+    },
+    {
+      "file": "1HWL.pdb",
+      "url": "https://files.rcsb.org/download/1HWL.pdb",
+      "source": "https://doi.org/10.2210/pdb1HWL/pdb",
+      "dimensions": null,
+      "bytes": 1085886,
+      "sha256": "dbf8d06e48681293965fa9306eb2e01abec8c6567138c7c57a80bc8b7ba9d6cf",
+      "status": "downloaded"
+    },
+    {
+      "file": "1DQ8.pdb",
+      "url": "https://files.rcsb.org/download/1DQ8.pdb",
+      "source": "https://doi.org/10.2210/pdb1DQ8/pdb",
+      "dimensions": null,
+      "bytes": 1126791,
+      "sha256": "7fd96a9430a9af75ed216bb4b5585a68da2227c6bf3a7419982819dd5babc8c0",
+      "status": "downloaded"
+    },
+    {
+      "file": "5VA1.pdb",
+      "url": "https://files.rcsb.org/download/5VA1.pdb",
+      "source": "https://doi.org/10.2210/pdb5VA1/pdb",
+      "dimensions": null,
+      "bytes": 402732,
+      "sha256": "946f89bb727f063d07e6df1b15d7130a914597d6524cd364e3fdeea83fc7f472",
+      "status": "downloaded"
+    },
+    {
+      "file": "lyu_fig1.jpg",
+      "url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/ea51/11253030/1ebb930880b0/nihms-2007189-f0002.jpg",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11253030/",
+      "dimensions": [
+        1781,
+        1800
+      ],
+      "bytes": 1365495,
+      "sha256": "d3cc16df77cea8078f9ebbcc1f2cf4fbf35bae2d2241cb0ac5877ca218a9a81b",
+      "status": "downloaded",
+      "caption": "Fig. 1. Structural comparisons of the AF2 predicted structure and experimental structure for the \u03c3 2 and 5-HT2A receptors. Open in a new tab The \u03c3 2 receptor is shown in the left column and the 5-HT2A receptor in the right column. ( A and B ) The experimental structure ( 7 ) (cyan) is overlaid with the AF2 predicted structure (yellow). The RMSD values were calculated based on backbone atoms. The ligand binding site residues were selected within a 5-\u00c5 distance from the ligand. In (B), two residues with large conformational differences between the AF2 and experimental structures used in docking, L229 and F234, are highlighted in orange for the 5-HT2A receptor. ( C ) The full-atom RMSD values of the binding site residues between the AF2 and the experimental structures. Single-letter abbreviations used in the figures for the amino acid residues are as follows: C, Cys; D, Asp; E, Glu; F, Phe; G, Gly; H, His; I, Ile; L, Leu; M, Met; N, Asn; Q, Gln; S, Ser; T, Thr; V, Val; W, Trp; and Y, Tyr."
+    },
+    {
+      "file": "lyu_fig2.jpg",
+      "url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/ea51/11253030/d0cea58dd90d/nihms-2007189-f0003.jpg",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11253030/",
+      "dimensions": [
+        1800,
+        1783
+      ],
+      "bytes": 648867,
+      "sha256": "35475d7e7dc949f0bc783830bc6debc7c721e7352f92c35a151c6153d432ace3",
+      "status": "downloaded",
+      "caption": "Fig. 2. Comparison of prospective screens against the crystal and AF2 structures of the \u03c3 2 receptor. Open in a new tab (A) The same 490 million molecules from ZINC20 were screened against both the crystal and AF2 structures of the \u03c3 2 receptor. From these, 138 molecules from the crystal docking campaign and 119 from the AF2 docking campaign were synthesized and tested in a radioligand displacement assay. The campaign involving the crystal structure has already been published. The data shown on the left were replotted based on the previously published dataset. Displacement of the radioligand [ 3 H]-DTG by each tested molecule occurs at 1 \u03bcM (mean \u00b1 SEM of three technical replicates). The horizontal dashed lines indicate 50% radioligand displacement. Bars below the dashed lines represent confirmed binders, which are colored in blue. ( B ) The distribution of binding affinity levels among the hits from both the AF2 and crystal structure screens. We measured competition binding curves for the top 21 docking hits from the crystal structure screen and the top 18 hits from the AF2 structure screen. These hits are categorized into three affinity ranges: <5 nM, 5 to 50 nM, and >50 nM. ( C ) The docked poses of the best binder from the screen against the AF2 model. ( D ) The competition binding curve of the best binder from (C) against the \u03c3 2 receptor. The data are represented as mean \u00b1 SEM from three technical replicates. Mean values and standard error are available in data S1 ."
+    },
+    {
+      "file": "lyu_fig3.jpg",
+      "url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/ea51/11253030/b7895ff9ee4e/nihms-2007189-f0004.jpg",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11253030/",
+      "dimensions": [
+        1800,
+        1786
+      ],
+      "bytes": 637014,
+      "sha256": "5f4d0b1da3299e2f98aef84bac521886ff8034603f2cf476e86e8093b0d9e98c",
+      "status": "downloaded",
+      "caption": "Fig. 3. Comparison of prospective screens against the cryo-EM and AF2 structures of the 5-HT2A receptor. Open in a new tab ( A ) The same set of 1.6 billion molecules from ZINC22 were docked against the cryo-EM and AF2 structures of the 5-HT2A receptor. Of these, 223 molecules were prioritized from the cryo-EM docking campaign (left) and 161 from the AF2 docking campaign (right). ( B ) Displacement of the radioligand [ 3 H]-LSD by each molecule at 10 \u03bcM (mean \u00b1 SEM of three independent replicates). The horizontal dashed lines indicate 50 and 90% radioligand displacement, respectively. ( C ) The Ca 2+ mobilization functional assay in agonist mode. Each compound was tested at a concentration of 3 \u03bcM. the horizontal dashed lines indicate agonism equivalent to 10% 5-HT activity. Data are presented as mean \u00b1 SEM from three biological replicates. ( D ) The Ca 2+ mobilization functional assay in antagonist mode. Each compound was tested at a concentration of 3 \u03bcM. The dashed lines indicate antagonism equivalent to 20% clozapine activity. Data are presented as mean \u00b1 SEM from three biological replicates. Mean values and standard error are available in data S2 ."
+    },
+    {
+      "file": "lyu_fig4.jpg",
+      "url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/ea51/11253030/1f1a29809e0c/nihms-2007189-f0005.jpg",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11253030/",
+      "dimensions": [
+        1800,
+        1312
+      ],
+      "bytes": 819892,
+      "sha256": "ed536a293e619c24659b388fa2a81fea89a03c814fcf29e71cf4c36b56b05858",
+      "status": "downloaded",
+      "caption": "Fig. 4. Dose-response curves of the top agonists against the 5-HT2A, 5-HT2B, and 5-HT2C receptors. Open in a new tab Top agonists from both docking campaigns were tested at the 5-HT2A (blue), 5-HT2B (red), and 5-HT2C (green) receptors. ( A ) Data from functional assays measuring calcium mobilization (top) and G\u03b1q protein dissociation or \u03b2-arrestin2 recruitment (bottom) for the top four agonists from the cryo-EM docking campaign. Fit parameters for each compound can be found in table S5 . ( B ) Data from functional assays measuring calcium mobilization (top) and G\u03b1q protein dissociation or \u03b2-arrestin2 recruitment (bottom) for the top five agonists from the AF2 docking campaign. For (A) and (B), the chemical structure of each compound is displayed below its respective dose-response curve. Data are presented as mean \u00b1 SEM from three biological replicates."
+    },
+    {
+      "file": "lyu_fig5.jpg",
+      "url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/ea51/11253030/67f593349f6e/nihms-2007189-f0006.jpg",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11253030/",
+      "dimensions": [
+        1359,
+        1800
+      ],
+      "bytes": 1799681,
+      "sha256": "9558f35ffe9fded714a6fc07e49fe8892070f7b83ec22e6dfcddcb7568ee5f89",
+      "status": "downloaded",
+      "caption": "Fig. 5. Structural characterization of the 5-HT2A receptor in complex with lisuride and Z7757. Open in a new tab ( A and B ) Maps of lisuride (A) and Z7757 (B) active-state heterotrimers. Models of the compounds built into the electron density are shown. ( C ) Overlay of the lisuride and Z7757 structures, which superpose to 0.78-\u00c5 C\u03b1-RMSD. ( D and E ) Interactions between lisuride and the receptor (D) and between Z7757 and the receptor (E). ( F ) Overlay of Z7757 and lisuride in the orthosteric pocket. ( G ) Comparison of the experimental Z7757 structure and the predicted structure from the AF2 docking screen. ( H ) Predicted interactions from the docked pose of Z7757 in the AF2 structure. ( I ) Aligned lisuride cryo-EM structure, AF2-model, Z7757 cryo-EM structure, and the lisuride crystal structure (PDB ID 7WC7) highlighting residues that showed the biggest difference between the AF2 model and lisuride cryo-EM structures and that were used in the docking studies. In (D), (E), and (H), dashed lines indicate potential modeled interactions between the ligand and the receptor."
+    },
+    {
+      "file": "antibiotics_fig1.jpg",
+      "url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4c6a/12790861/da4bd3b75574/nihms-2127187-f0001.jpg",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12790861/",
+      "dimensions": [
+        2089,
+        1610
+      ],
+      "bytes": 624903,
+      "sha256": "5812c03d9f5c0f606ce537ca21793d6a8529f5cc78d1e6a15140199e65067f62",
+      "status": "downloaded",
+      "caption": "Figure 1. Graph neural networks predict chemical fragments with antibacterial activity against N. gonorrhoeae . Open in a new tab (A) Schematic of the fragment-based generation approach. (B) t-SNE representation of chemical space, showing that GDB fragment libraries represent chemical space diverse from known antibiotics. (C) Rank-ordered fragment prediction scores from the N. gonorrhoeae antibacterial activity model. (D) Computational filters applied to sets of fragments, resulting in final sets of fragments for N. gonorrhoeae . (E) Rank-ordered plot of fragment (above) and compound (below) prediction scores for available compounds procured for empirical testing at 50 \u03bcM. (F) Chemical structures of fragment F1 and associated active compounds from (E). The fragment is highlighted in the compounds. (G) MIC and CC 50 values for the compounds in panel (F). n=2, * indicates values >32 \u03bcg/mL. See also Figure S1 ."
+    },
+    {
+      "file": "antibiotics_fig2.jpg",
+      "url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4c6a/12790861/b9af23fff1a5/nihms-2127187-f0002.jpg",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12790861/",
+      "dimensions": [
+        2089,
+        1920
+      ],
+      "bytes": 623080,
+      "sha256": "985ad24eb46903c0821577b674c3842065004a3e4791ff5629c1983999300d1b",
+      "status": "downloaded",
+      "caption": "Figure 2. Generative deep learning-guided design of compounds containing fragment F1 with predicted antibacterial activity. Open in a new tab (A) Schematic of the genetic algorithm based on F-CReM and examples of filtered generated compounds, with fragment F1 highlighted. (B) Distributions of antibacterial activity prediction scores from five rounds of compound generation using F-CReM. (C) Schematic of the F-VAE algorithm and examples of filtered generated compounds. (D) Computational filters applied to fragment-based designed compounds, resulting in two final sets of compounds shortlisted for chemical synthesis. (E) Molecular weights, topological polar surface area (TPSA), calculated log P (clog P ), hydrogen bond acceptors, hydrogen bond donors, and retrosynthetic accessibility score (RAscore) values for all filtered compounds generated by F-CReM and F-VAE, compared to the median of known Gram-negative antibiotics. (F) Structures of two designed and synthesized compounds, NG1 and NG2 . (G) MICs against N. gonorrhoeae ATCC 49226 and CC 50 values of the compounds for four different human cell types. n=2, * indicates values >128 \u03bcg/mL. (H) MICs of compound NG1 against various bacterial species. Results are representative of two biological replicates. See also Figure S2 ."
+    },
+    {
+      "file": "antibiotics_fig3.jpg",
+      "url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4c6a/12790861/333da0aeb15d/nihms-2127187-f0003.jpg",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12790861/",
+      "dimensions": [
+        1489,
+        1800
+      ],
+      "bytes": 430472,
+      "sha256": "b7ac5ca14c5a66f6867bcbbdfb20146a686b948083e9e8adbf233b2250c6e069",
+      "status": "downloaded",
+      "caption": "Figure 3. Mechanistic study and in vivo efficacy of compound NG1. Open in a new tab (A) MICs against wild-type and antibiotic-resistant strains of N. gonorrhoeae (listed in Table S4 ). Each data point represents a strain tested in biological duplicate. (B) Time-kill curves for ATCC 49226 treated with NG1 or azithromycin. Mean \u00b1 SD; n=2. (C) Minimum bactericidal concentration of NG1 in ATCC 49226. Mean \u00b1 SD; n=2. (D) Membrane rigidification of ATCC 49226 treated with NG1 at 64 \u03bcg/mL and control compounds, as measured by the Laurdan generalized polarization (GP). Mean \u00b1 SD; n=2. (E) Loss of membrane integrity of ATCC 49226 treated with NG1 and DMSO, as measured by the uptake of the hydrophobic fluorescent probe, 1-N-phenylnaphthylamine (NPN). Mean \u00b1 SD; n=2. (F) Membrane permeabilization of ATCC 49226 treated with NG1 or Triton X-100, as seen by a time-dependent increase in SYTOX Green fluorescence signal normalized to the untreated control. Mean \u00b1 SD; n=2. (G) Volcano plot of PISA results from FA1090 lysate treated with NG1 compared to the vehicle control. The most significantly affected protein, LptA, is shown in purple. (H) Expression levels of lptA in FA1090 treated with NG1 at 4\u00d7 MIC, expressed in log 2 counts-per-million (CPM). (I) Checkerboard study of NG1 and polymyxin B in ARB #0187 revealing a synergistic effect. Data are representative of biological duplicate. (J) Schematic of the in vivo study of NG1 in the N. gonorrhoeae vaginal infection model using strain ATCC 49226. Treatment with vehicle, NG1 , or ceftriaxone was administered intravaginally for five doses. (K) Bacterial titers in vaginal lavage fluid. Horizontal lines represent median log10 CFU/mL values. Data represent treatment with vehicle control (n=8), NG1 (n=9), or ceftriaxone (n=5). Two-sided Mann-Whitney U-test compared to vehicle: *p \u2264 0.05, **p \u2264 0.01. Horizontal lines represent medians. (L) Summary of a structure-activity relationship analysis for NG1 . See also Figures S2 and S3 ."
+    },
+    {
+      "file": "antibiotics_fig4.jpg",
+      "url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4c6a/12790861/19d7d6e59142/nihms-2127187-f0004.jpg",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12790861/",
+      "dimensions": [
+        1660,
+        1800
+      ],
+      "bytes": 472243,
+      "sha256": "6080f0276d506eccdda8f60e893ca05bae8ba92f48af9f67d3dabfdb15f33193",
+      "status": "downloaded",
+      "caption": "Figure 4. Effect of fragment modification on synthesizability and antibacterial activity. Open in a new tab (A) Rank-ordered fragment prediction scores as determined by the S. aureus antibacterial activity model (above) and computational filters applied to the fragments (below). (B) Rank-ordered fragment (above) and compound (below) prediction scores for available compounds procured for empirical testing at 50 \u03bcM. (C) Structure of fragment F2 and its associated active compound from (B). The fragment is highlighted in EN1 . (D) MIC and CC 50 values for EN1 . n=2, * indicates values >64 \u03bcg/mL. (E) Structures of fragment F2 and the truncated fragment F2\u2019 , with the number of molecules generated for both fragments by the F-CReM and F-VAE models. (F) Computational filters applied to down-selected compounds using fragment F2\u2019 . (G) RAscore of molecules generated by F-CReM and F-VAE using fragments F2 and F2\u2019 . (H) Retrosynthesis success rates as determined by ASKCOS for molecules generated by F-CReM and F-VAE using fragments F2 and F2\u2019 . (I) MICs of 12 compounds from the Enamine REAL space with fragment F2 and 16 de novo designed and synthesized compounds with the fragment F2\u2019 against S. aureus RN4220. See also Figure S4 ."
+    },
+    {
+      "file": "antibiotics_fig5.jpg",
+      "url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4c6a/12790861/ab269624fc58/nihms-2127187-f0005.jpg",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12790861/",
+      "dimensions": [
+        1800,
+        1289
+      ],
+      "bytes": 425377,
+      "sha256": "d6c0033adf8b207e80c5ad45f604082df6e104d53150e90a4a87e6b44b43fd36",
+      "status": "downloaded",
+      "caption": "Figure 5. De novo generation of antibacterial compounds without a fragment starting point. Open in a new tab (A) Schematic of the de novo generative approach. (B) Schematic of the de novo genetic algorithm based on CReM and examples of generated compounds. (C) Schematic of the de novo JT-VAE algorithm and examples of generated compounds. (D) Molecular properties and RAscores for a random subset of 10,000 compounds generated by the de novo CReM and JT-VAE models, compared to the median of known Gram-positive antibiotics. (E) Computational filters and summary of experimental results for JT-VAE-designed compounds. (F) Experimental validation of 22 JT-VAE-designed molecules against S. aureus when tested at 64 \u03bcg/mL. n=2. (G) Structures of the six de novo designed compounds with activity against S. aureus . See also Figure S5 ."
+    },
+    {
+      "file": "antibiotics_fig6.jpg",
+      "url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4c6a/12790861/905078aae594/nihms-2127187-f0006.jpg",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12790861/",
+      "dimensions": [
+        1696,
+        1800
+      ],
+      "bytes": 562606,
+      "sha256": "0f83aa1786e5e565b5dc078e07d0edf2029048d829bb59a66ddcadf9272a1c1f",
+      "status": "downloaded",
+      "caption": "Figure 6. Characterization of de novo designed compounds (DN1-DN6). Open in a new tab (A) MICs against S. aureus , and CC 50 values of the compounds in four different human cell types. n=2, * indicate values >128 \u03bcg/mL. (B) MICs against various Gram-positive species (top) and Gram-negative bacterial species (middle), or in combination with a sub-MIC concentration of polymyxin B nonapeptide (bottom). n=2. see also Table S4 . (C) DiSC 3 (5) fluorescence of S. aureus RN4220 treated with DN1-DN6 , valinomycin (positive control), and DMSO (negative control). (D) Images of B. subtilis 168 cells treated with the active de novo designed compounds at 2\u00d7 MIC for 2 hours. DAPI in blue and FM4-64 in red. (E) Area of untreated and compound treated (2\u00d7 MIC) B. subtilis cells, where n=number of cells quantified and **** p \u2264 0.0001, evaluated using a two-sided Mann-Whitney U test. (F) Membrane rigidification of RN4220 treated with DN1 at 32 \u03bcg/mL and control compounds, as measured by the Laurdan generalized polarization (GP). Mean \u00b1 SD; n=2. (G) Cryo-TEM images of untreated and DN1 treated (4\u00d7 MIC) S. aureus . (H) Quantification of S. aureus membrane thickness (untreated, n = 14; DN1 , n = 11). **** p \u2264 0.0001, evaluated using a two-sided Mann-Whitney U test. See also Figure S6 ."
+    },
+    {
+      "file": "antibiotics_fig7.jpg",
+      "url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4c6a/12790861/637df158ffe6/nihms-2127187-f0007.jpg",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12790861/",
+      "dimensions": [
+        1800,
+        1071
+      ],
+      "bytes": 303667,
+      "sha256": "18c149d094989208c1858c7e993ec2eab6c1f736927413625aa6cf99c22388ac",
+      "status": "downloaded",
+      "caption": "Figure 7. Mechanistic study and in vivo efficacy of DN1. Open in a new tab (A) Time-kill curves for S. aureus RN4220 treated with DN1 or vancomycin. Mean \u00b1 SD; n=2. (B) Minimum bactericidal concentration of DN1 in RN4220. Mean \u00b1 SD; n=2. (C) MICs against antibiotic-resistant strains of S. aureus (listed in Table S4 ). Each data point represents a strain tested in biological duplicate. (D) MICs against wild-type and antibiotic-resistant strains of N. gonorrhoeae (listed in Table S4 ). Each data point represents a strain tested in biological duplicate. (E) Schematic of the in vivo study of DN1 in a neutropenic mouse skin infection model using MRSA strain ATCC BAA1556. Treatment with vehicle, DN1 , or fusidic acid was administered topically in six doses. (F) Bacterial titers in skin tissue. Horizontal lines indicate median CFU/mouse values. Data represent treatment with vehicle control (n=6), DN1 (n=6), or fusidic acid (n=6). Two-sided Mann-Whitney U-test compared to vehicle treatment: *p \u2264 0.05, **p \u2264 0.01. Horizontal lines represent medians. (G) Summary of a structure-activity relationship analysis for DN1 . See also Figures S6 and S7 ."
+    }
+  ]
+}
