@@ -1,0 +1,101 @@
+name: Public research asset retrieval
+on:
+  workflow_dispatch:
+  push:
+    paths: ['.github/workflows/public-research-assets.yml']
+permissions:
+  contents: read
+jobs:
+  public-assets:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Install public-data tools
+        run: |
+          python3 -m venv /tmp/research-assets
+          /tmp/research-assets/bin/pip -q install requests pillow beautifulsoup4 pymol-open-source
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends libgl1 libglu1-mesa
+      - name: Retrieve only public journal figures and PDB data
+        run: |
+          /tmp/research-assets/bin/python - <<'PY'
+          from pathlib import Path
+          from concurrent.futures import ThreadPoolExecutor
+          from urllib.parse import quote, urljoin
+          from io import BytesIO
+          import requests, json, hashlib
+          from PIL import Image
+          from bs4 import BeautifulSoup
+          out=Path('public-research-assets');out.mkdir(exist_ok=True)
+          manifest=[]
+          jobs=[]
+          papers=[('af3','10.1038/s41586-024-07487-w','41586_2024_7487',[1,3,5]),('gnina','10.1186/s13321-025-00973-x','13321_2025_973',[1,2,4]),('tnik','10.1038/s41587-024-02143-0','41587_2024_2143',[1,2,3]),('wong','10.1038/s41586-023-06887-8','41586_2023_6887',[1,2,3,4,5]),('herg','10.1186/s13321-025-01063-8','13321_2025_1063',[1,6]),('smrt','10.1038/s41587-025-02942-z','41587_2025_2942',[1,3,4]),('rna','10.1038/s43588-025-00820-x','43588_2025_820',[1,6]),('reinvent','10.1186/s13321-024-00812-5','13321_2024_812',[1,3,5]),('cellpaint','10.1038/s41592-024-02241-6','41592_2024_2241',[1,2]),('pockets','10.1038/s41586-021-03828-1','41586_2021_3828',[3]),('er','10.1038/39645','389753a0',[1,2,3])]
+          for key,doi,stem,figs in papers:
+              for n in figs:
+                  url=f'https://media.springernature.com/full/springer-static/image/art%3A{quote(doi,safe="")}/MediaObjects/{stem}_Fig{n}_HTML.png'
+                  jobs.append((f'{key}_fig{n}.png',url,'https://doi.org/'+doi))
+          for n in [1,3]:
+              jobs.append((f'posebusters_fig{n}.gif',f'https://pubs.rsc.org/image/article/2024/SC/d3sc04185a/d3sc04185a-f{n}.gif','https://doi.org/10.1039/D3SC04185A'))
+          for pdb in ['1UDT','1M17','1ERE','1ERR','1HWL','1DQ8','5VA1']:
+              jobs.append((pdb+'.pdb',f'https://files.rcsb.org/download/{pdb}.pdb',f'https://doi.org/10.2210/pdb{pdb}/pdb'))
+          def fetch(job):
+              name,url,source=job
+              try:
+                  r=requests.get(url,timeout=35);r.raise_for_status()
+                  data=r.content
+                  if name.endswith('.pdb'):
+                      assert b'ATOM' in data
+                      dims=None
+                  else:
+                      im=Image.open(BytesIO(data)); im.load();dims=list(im.size)
+                  (out/name).write_bytes(data)
+                  return dict(file=name,url=url,source=source,dimensions=dims,bytes=len(data),sha256=hashlib.sha256(data).hexdigest(),status='downloaded')
+              except Exception as e:
+                  return dict(file=name,url=url,source=source,status='failed',error=str(e))
+          with ThreadPoolExecutor(max_workers=6) as ex:
+              for rec in ex.map(fetch,jobs):
+                  manifest.append(rec);print(rec['file'],rec['status'],rec.get('dimensions'))
+          # Retrieve figure URLs from publicly accessible PMC article pages.
+          for key,pmcid in [('lyu','PMC11253030'),('antibiotics','PMC12790861')]:
+              u=f'https://pmc.ncbi.nlm.nih.gov/articles/{pmcid}/'
+              try:
+                  page=requests.get(u,timeout=35);page.raise_for_status();(out/(key+'.html')).write_text(page.text)
+                  soup=BeautifulSoup(page.text,'html.parser')
+                  for i,fig in enumerate(soup.select('figure'),1):
+                      img=fig.find('img')
+                      if not img:continue
+                      src=img.get('src') or img.get('data-src')
+                      if not src:continue
+                      src=urljoin(u,src)
+                      a=fig.find('a',href=True)
+                      if a and any(a['href'].lower().endswith(e) for e in ['.jpg','.png','.gif']):src=urljoin(u,a['href'])
+                      rec=fetch((f'{key}_fig{i}.jpg',src,u));rec['caption']=fig.get_text(' ',strip=True);manifest.append(rec)
+              except Exception as e:manifest.append(dict(file=key,status='failed',error=str(e)))
+          (out/'provenance.json').write_text(json.dumps(manifest,indent=2))
+          assert sum(x['status']=='downloaded' for x in manifest)>=8
+          PY
+      - name: Render experimental structures at high resolution
+        run: |
+          /tmp/research-assets/bin/python - <<'PY'
+          from pathlib import Path
+          import pymol
+          pymol.finish_launching(['pymol','-cq'])
+          from pymol import cmd
+          out=Path('public-research-assets')
+          def settings():
+              cmd.bg_color('white');cmd.set('orthoscopic',1);cmd.set('ray_opaque_background',1);cmd.set('ray_shadows',0);cmd.set('antialias',2);cmd.set('ambient',.5);cmd.set('specular',.18);cmd.set('cartoon_fancy_helices',1);cmd.set('cartoon_smooth_loops',1);cmd.set('stick_radius',.20);cmd.set('sphere_scale',.26);cmd.set('ray_trace_mode',0)
+          for pdb,lig in [('1UDT','VIA'),('1M17','AQ4')]:
+              if not (out/(pdb+'.pdb')).exists():continue
+              cmd.reinitialize();settings();cmd.load(str(out/(pdb+'.pdb')),'complex');cmd.remove('not chain A');cmd.remove('solvent');cmd.hide('everything');cmd.show('cartoon','polymer.protein');cmd.color('lightblue','polymer.protein');cmd.select('ligand',f'resn {lig}');cmd.show('sticks','ligand');cmd.color('orange','ligand and elem C');cmd.color('blue','ligand and elem N');cmd.color('red','ligand and elem O');cmd.color('yellow','ligand and elem S');cmd.show('sticks','byres (polymer.protein within 4.2 of ligand)');cmd.orient('ligand');cmd.zoom('ligand',8);cmd.png(str(out/(pdb+'_pocket.png')),width=2400,height=1700,dpi=300,ray=1)
+          if all((out/(p+'.pdb')).exists() for p in ['1ERE','1ERR']):
+              cmd.reinitialize();settings()
+              for p in ['1ERE','1ERR']:cmd.load(str(out/(p+'.pdb')),p)
+              cmd.remove('not chain A');cmd.remove('solvent');cmd.align('1ERR and polymer.protein','1ERE and polymer.protein');cmd.hide('everything');cmd.show('cartoon','polymer.protein');cmd.color('lightblue','1ERE');cmd.color('wheat','1ERR');cmd.color('marine','1ERE and resi 538-552');cmd.color('orange','1ERR and resi 538-552');cmd.show('sticks','resn EST+RAL');cmd.color('marine','1ERE and resn EST');cmd.color('orange','1ERR and resn RAL');cmd.orient('1ERE and polymer.protein');cmd.turn('x',20);cmd.zoom('all',1.5);cmd.png(str(out/'ER_H12_comparison.png'),width=2400,height=1700,dpi=300,ray=1)
+          PY
+      - name: Export public-source assets only
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: public-research-assets
+          path: public-research-assets/
+          retention-days: 3
+          if-no-files-found: error
