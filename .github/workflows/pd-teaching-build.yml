@@ -1,0 +1,77 @@
+name: Rebuild AI pharmacodynamics teaching slides
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'pd_rebuild/**'
+      - '.github/workflows/pd-teaching-build.yml'
+permissions:
+  contents: read
+  actions: read
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - name: Check out builder
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Install scientific drawing and PowerPoint tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends libgl1 libglu1-mesa libreoffice-impress fonts-liberation2
+          python -m pip install --quiet python-pptx Pillow numpy requests rdkit pymol-open-source PyMuPDF imagehash lxml
+      - name: Build teaching slides from public sources
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python pd_rebuild/build_teaching_section.py
+      - name: Inspect rendered text and layout
+        run: |
+          mkdir -p pd-build/review
+          libreoffice -env:UserInstallation=file:///tmp/lo-pd-unique --headless --convert-to pdf --outdir pd-build/review pd-build/output/AI_in_PD_Revised_Teaching_Slides.pptx
+          python - <<'PY'
+          import json, zipfile, re, hashlib
+          from pathlib import Path
+          import fitz
+          from PIL import Image
+          root=Path('pd-build'); p=root/'output/AI_in_PD_Revised_Teaching_Slides.pptx'
+          doc=fitz.open(root/'review/AI_in_PD_Revised_Teaching_Slides.pdf')
+          spec=json.loads((root/'output/content_manifest.json').read_text());report=json.loads((root/'output/build_audit.json').read_text())
+          report['rendered_page_count']=len(doc); report['missing_title_words']=[];report['rendered_text_outside_page']=[]
+          for i,(page,item) in enumerate(zip(doc,spec),7):
+              raw=page.get_text();norm=lambda t:re.sub(r'[^a-z0-9]','',t.lower())
+              if norm(item['title']) not in norm(raw):report['missing_title_words'].append(i)
+              for block in page.get_text('dict')['blocks']:
+                  if block['type']!=0:continue
+                  for line in block['lines']:
+                      for span in line['spans']:
+                          x0,y0,x1,y1=span['bbox']
+                          if x0<-.5 or y0<-.5 or x1>page.rect.width+.5 or y1>page.rect.height+.5:report['rendered_text_outside_page'].append({'slide':i,'text':span['text']})
+              page.get_pixmap(matrix=fitz.Matrix(1.5,1.5)).save(root/'review'/f'slide_{i:02}.png')
+          report['visual_inspection_status']='Rendered previews created; human/model visual review is still required.'
+          (root/'output/build_audit.json').write_text(json.dumps(report,indent=2))
+          assert len(doc)==40
+          assert not report['missing_title_words'],report['missing_title_words']
+          assert not report['rendered_text_outside_page'],report['rendered_text_outside_page']
+          package=root/'pptx-package';package.mkdir()
+          with zipfile.ZipFile(p) as z:z.extractall(package)
+          print(json.dumps(report,indent=2))
+          PY
+      - name: Export a directly usable OOXML package
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: AI-PD-Revised-Teaching-PowerPoint
+          path: pd-build/pptx-package/
+          include-hidden-files: true
+          retention-days: 3
+          if-no-files-found: error
+      - name: Export inspection materials
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: AI-PD-Teaching-Inspection
+          path: |
+            pd-build/output/
+            pd-build/review/*.png
+            pd-build/assets/*.png
+          retention-days: 3
+          if-no-files-found: warn
