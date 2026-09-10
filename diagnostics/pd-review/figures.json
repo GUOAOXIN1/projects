@@ -1,0 +1,562 @@
+[
+  {
+    "slide": 7,
+    "key": "af3_intro",
+    "sha256": "020a478dc383da044508600c1a39fb8c3ac3464de09f70d86ecc2da43e7f1856",
+    "source": "https://doi.org/10.1038/s41586-024-07487-w",
+    "detail": "AF3 Figure 1a–b, structural examples only; architecture and benchmark panels omitted; lossless crop (0, 0, 2116, 491) from af3_fig1",
+    "pixels": [
+      2116,
+      491
+    ],
+    "x": 0.43,
+    "y": 3.169569116360455,
+    "w": 9.14,
+    "h": 2.1208601134215503,
+    "ppi": 231.50984682713346
+  },
+  {
+    "slide": 10,
+    "key": "tnik_evidence",
+    "sha256": "cd9d841cbec9d7684f46b79c5c944400a5b00c5a4e5408964ac48b5949ee3f04",
+    "source": "https://doi.org/10.1038/s41587-024-02143-0",
+    "detail": "Target-prioritization portion of Ren Figure 1; lossless crop (0, 0, 1015, 760) from tnik_fig1",
+    "pixels": [
+      1015,
+      760
+    ],
+    "x": 2.0217760279965002,
+    "y": 2,
+    "w": 5.956447368421053,
+    "h": 4.46,
+    "ppi": 170.40358744394618
+  },
+  {
+    "slide": 11,
+    "key": "pde5_sildenafil",
+    "sha256": "024b454f23cdb578f03881e72294e4de1eb17afa88e56f90ff9293499378753c",
+    "source": "https://doi.org/10.2210/pdb1UDT/pdb",
+    "detail": "New ray-traced rendering of experimental coordinates 1UDT; ligand VIA. Not an AI prediction.",
+    "pixels": [
+      2400,
+      1500
+    ],
+    "x": 3.75,
+    "y": 1.9418744531933507,
+    "w": 5.85,
+    "h": 3.65625,
+    "ppi": 410.2564102564103
+  },
+  {
+    "slide": 12,
+    "key": "af3_fig3",
+    "sha256": "c269b97fe330fa03fdf019f5b71afa133df031f0f234f4df61d50c9699684a32",
+    "source": "https://doi.org/10.1038/s41586-024-07487-w",
+    "detail": "Public-source original figure; source pixels retained.",
+    "pixels": [
+      1413,
+      780
+    ],
+    "x": 0.9602690288713911,
+    "y": 2,
+    "w": 8.079461538461539,
+    "h": 4.46,
+    "ppi": 174.8878923766816
+  },
+  {
+    "slide": 13,
+    "key": "dgat2_pocket",
+    "sha256": "cd021800a74b967c04ef4a3f3bb433054f16f52f3ec337d65808bdeeb10e69f0",
+    "source": "https://doi.org/10.1038/s41586-021-03828-1",
+    "detail": "DGAT2-region crop from AlphaFold human-proteome Figure 3; verify selected panel; lossless crop (1037, 802, 2118, 1605) from pockets_fig3",
+    "pixels": [
+      1081,
+      803
+    ],
+    "x": 3.75,
+    "y": 1.5972200349956256,
+    "w": 5.85,
+    "h": 4.345559666975023,
+    "ppi": 184.7863247863248
+  },
+  {
+    "slide": 14,
+    "key": "gpcr_states",
+    "sha256": "4dd2fff138f78efb4bb109bec722be46b365e25fcc8976b640a4f252f77ad0b6",
+    "source": "https://doi.org/10.2210/pdb3SN6/pdb ; https://doi.org/10.2210/pdb2RH1/pdb",
+    "detail": "Experimental beta-2 adrenergic receptor states, inactive blue and active wheat; TM6 highlighted. Experimental comparison, not an AI trajectory.",
+    "pixels": [
+      2400,
+      1500
+    ],
+    "x": 3.75,
+    "y": 1.9418744531933507,
+    "w": 5.85,
+    "h": 3.65625,
+    "ppi": 410.2564102564103
+  },
+  {
+    "slide": 15,
+    "key": "adrenaline_input",
+    "sha256": "c54f442e7f3b10a8f76ea0a871702234764c891a1571972f6c433af329dfc5af",
+    "source": "Chemical teaching example; R-adrenaline connectivity and stereochemistry checked with RDKit.",
+    "detail": "Original high-resolution chemical illustration. No activity prediction is assigned.",
+    "pixels": [
+      2400,
+      1280
+    ],
+    "x": 0.8187489063867016,
+    "y": 2,
+    "w": 8.3625,
+    "h": 4.46,
+    "ppi": 286.99551569506724
+  },
+  {
+    "slide": 16,
+    "key": "egfr_erlotinib",
+    "sha256": "31d9ada503499ab3b4460ef5824a70a9f258a22848b71ef1fcabf196a86c45fc",
+    "source": "https://doi.org/10.2210/pdb1M17/pdb",
+    "detail": "New ray-traced rendering of experimental coordinates 1M17; ligand AQ4. Not an AI prediction.",
+    "pixels": [
+      2400,
+      1500
+    ],
+    "x": 3.75,
+    "y": 1.9418744531933507,
+    "w": 5.85,
+    "h": 3.65625,
+    "ppi": 410.2564102564103
+  },
+  {
+    "slide": 17,
+    "key": "hmgr_rosuvastatin",
+    "sha256": "7a033b52f6b469c0b6a7b8537c19ecc90eab1f35d2ad62c20b4dcc29292fa751",
+    "source": "https://doi.org/10.2210/pdb1HWL/pdb",
+    "detail": "New ray-traced rendering of experimental coordinates 1HWL; ligand FBI. Not an AI prediction.",
+    "pixels": [
+      2400,
+      1500
+    ],
+    "x": 3.75,
+    "y": 1.9418744531933507,
+    "w": 5.85,
+    "h": 3.65625,
+    "ppi": 410.2564102564103
+  },
+  {
+    "slide": 18,
+    "key": "allosteric_pocket",
+    "sha256": "1e46af09a6b6626366dc8b0af98cee3b2f186a2ac62bb70e8b5cabb1d34a5ea2",
+    "source": "https://doi.org/10.2210/pdb7QIE/pdb",
+    "detail": "Experimental PI5P4K-gamma allosteric inhibitor complex 7QIE; NIH-12848 analogue. Not an AI affinity calculation.",
+    "pixels": [
+      2400,
+      1500
+    ],
+    "x": 3.75,
+    "y": 1.9418744531933507,
+    "w": 5.85,
+    "h": 3.65625,
+    "ppi": 410.2564102564103
+  },
+  {
+    "slide": 20,
+    "key": "er_states",
+    "sha256": "332f5ef17b107de4259da1b73262d84f821378f38dd0947a27e156a18cb1618c",
+    "source": "https://doi.org/10.2210/pdb1ERE/pdb ; https://doi.org/10.2210/pdb1ERR/pdb",
+    "detail": "Experimental oestrogen receptor comparison: estradiol-bound blue and raloxifene-bound wheat/orange; helix 12 highlighted. No AI calculation.",
+    "pixels": [
+      2400,
+      1500
+    ],
+    "x": 3.75,
+    "y": 1.9418744531933507,
+    "w": 5.85,
+    "h": 3.65625,
+    "ppi": 410.2564102564103
+  },
+  {
+    "slide": 21,
+    "key": "pbp_ampicillin",
+    "sha256": "eca8469811f8664a060785c7c40efa24d8b8df671dd269fe41bc5a8fd997eeb1",
+    "source": "https://doi.org/10.2210/pdb2EX6/pdb",
+    "detail": "New ray-traced rendering of experimental coordinates 2EX6; ligand AIX. Not an AI prediction.",
+    "pixels": [
+      2400,
+      1500
+    ],
+    "x": 3.75,
+    "y": 1.9418744531933507,
+    "w": 5.85,
+    "h": 3.65625,
+    "ppi": 410.2564102564103
+  },
+  {
+    "slide": 22,
+    "key": "herg_channel",
+    "sha256": "8ab5773cbfc3cea59977cff1b71976d5f6a93bc3eeec20e10fce93106bd8829f",
+    "source": "https://doi.org/10.2210/pdb5VA1/pdb",
+    "detail": "Experimental hERG channel structure; no blocker pose or new HERGAI output is shown.",
+    "pixels": [
+      2400,
+      1500
+    ],
+    "x": 3.75,
+    "y": 1.9418744531933507,
+    "w": 5.85,
+    "h": 3.65625,
+    "ppi": 410.2564102564103
+  },
+  {
+    "slide": 23,
+    "key": "screening_collection",
+    "sha256": "a54f7dc51cb2751a74508ddf8ada73a5f46343b183d1f29c620d312d646f43a9",
+    "source": "McNutt et al., J. Cheminform. 17, 28 (2025). doi:10.1186/s13321-025-00973-x",
+    "detail": "Original teaching illustration: distinct plausible chemical candidates, with no assigned activity or claimed model output.",
+    "pixels": [
+      2400,
+      1280
+    ],
+    "x": 0.8187489063867016,
+    "y": 2,
+    "w": 8.3625,
+    "h": 4.46,
+    "ppi": 286.99551569506724
+  },
+  {
+    "slide": 24,
+    "key": "assay_examples",
+    "sha256": "ac54d6dcda9f358ea701a74472acbc011e16560ef35c28cb004913551a2f1eed",
+    "source": "Heid et al., J. Chem. Inf. Model. 64, 9–17 (2024). doi:10.1021/acs.jcim.3c01250",
+    "detail": "Original illustration of assay-trained prediction, not a measured dataset or actual Chemprop prediction.",
+    "pixels": [
+      2400,
+      1280
+    ],
+    "x": 0.8187489063867016,
+    "y": 2,
+    "w": 8.3625,
+    "h": 4.46,
+    "ppi": 286.99551569506724
+  },
+  {
+    "slide": 25,
+    "key": "xanthine_pair",
+    "sha256": "ea67c1708ffe1cf9a0eb00bd15237f944b579d5c669ee55f8474528668188a92",
+    "source": "Zimmermann et al., Nat. Struct. Biol. 4, 644–649 (1997). doi:10.1038/nsb0897-644",
+    "detail": "Theophylline and caffeine chemical structures; a known RNA aptamer discriminates between them. No new AI prediction.",
+    "pixels": [
+      2400,
+      1280
+    ],
+    "x": 0.8187489063867016,
+    "y": 2,
+    "w": 8.3625,
+    "h": 4.46,
+    "ppi": 286.99551569506724
+  },
+  {
+    "slide": 26,
+    "key": "rna_theophylline",
+    "sha256": "514b20f1d5c00e1e6b2d56b855110dae45a02bf0d0607c3bd6b30e3eab7f7eeb",
+    "source": "https://doi.org/10.2210/pdb1EHT/pdb",
+    "detail": "Theophylline-bound RNA aptamer. First deposited NMR model, not the entire ensemble or an AI-generated result.",
+    "pixels": [
+      2400,
+      1500
+    ],
+    "x": 3.75,
+    "y": 1.9418744531933507,
+    "w": 5.85,
+    "h": 3.65625,
+    "ppi": 410.2564102564103
+  },
+  {
+    "slide": 27,
+    "key": "reinvent_fig4",
+    "sha256": "70e9dde845971d1508baee0213b6264727e1411e1dfa65681eabaf7d2faea1d5",
+    "source": "https://doi.org/10.1186/s13321-024-00812-5",
+    "detail": "Original published figure",
+    "pixels": [
+      1652,
+      759
+    ],
+    "x": 0.43,
+    "y": 2.1303444881889764,
+    "w": 9.14,
+    "h": 4.199309927360775,
+    "ppi": 180.74398249452952
+  },
+  {
+    "slide": 28,
+    "key": "selectivity_panel",
+    "sha256": "e40133a449db1ccde1ea192cdc4220840c75539b7368cec711256545b81be3ac",
+    "source": "Hopkins, Nat. Chem. Biol. 4, 682–690 (2008). doi:10.1038/nchembio.118",
+    "detail": "Original hypothetical target-panel illustration; not measured activity or a safety rating.",
+    "pixels": [
+      2400,
+      1280
+    ],
+    "x": 0.8187489063867016,
+    "y": 2,
+    "w": 8.3625,
+    "h": 4.46,
+    "ppi": 286.99551569506724
+  },
+  {
+    "slide": 29,
+    "key": "dna_complex",
+    "sha256": "50c62013f4d19f891431fe696654a172d0a7f38b7ce9b606a9bffd1741dbb0de",
+    "source": "https://doi.org/10.2210/pdb1D12/pdb",
+    "detail": "Experimental anthracycline–DNA complex from entry 1D12; no sequence-selective AI drug prediction is asserted.",
+    "pixels": [
+      2400,
+      1500
+    ],
+    "x": 3.75,
+    "y": 1.9418744531933507,
+    "w": 5.85,
+    "h": 3.65625,
+    "ppi": 410.2564102564103
+  },
+  {
+    "slide": 30,
+    "key": "tnik_binding",
+    "sha256": "c9bc8767d56265c229faa02a78a5560f9ac7ba4faae3d76a93748669c3906998",
+    "source": "https://doi.org/10.1038/s41587-024-02143-0",
+    "detail": "Binding-assay portion of Ren Figure 2; verify source panel before final use; lossless crop (0, 574, 966, 1107) from tnik_fig2",
+    "pixels": [
+      966,
+      533
+    ],
+    "x": 0.9583858267716535,
+    "y": 2,
+    "w": 8.083227016885553,
+    "h": 4.46,
+    "ppi": 119.50672645739911
+  },
+  {
+    "slide": 31,
+    "key": "cellpaint_fig1",
+    "sha256": "149cfd821ada958da4311da8f73fc4db5ab10ebd6bdd7a6483d7db9a01ca11b7",
+    "source": "https://doi.org/10.1038/s41592-024-02241-6",
+    "detail": "Public-source original figure; source pixels retained.",
+    "pixels": [
+      1501,
+      1002
+    ],
+    "x": 1.6594510061242345,
+    "y": 2,
+    "w": 6.681097804391218,
+    "h": 4.46,
+    "ppi": 224.66367713004482
+  },
+  {
+    "slide": 32,
+    "key": "profile_comparison",
+    "sha256": "966ee111a16a25e80746c8cf846cfd1e3adf00166a8ab980f1e8e00049e1b4a8",
+    "source": "Chandrasekaran et al., Nat. Methods 21, 1114–1121 (2024). doi:10.1038/s41592-024-02241-6",
+    "detail": "Original simulated perturbation profiles, explicitly distinct from published microscopy and measured study results.",
+    "pixels": [
+      2400,
+      1280
+    ],
+    "x": 0.8187489063867016,
+    "y": 2,
+    "w": 8.3625,
+    "h": 4.46,
+    "ppi": 286.99551569506724
+  },
+  {
+    "slide": 34,
+    "key": "tnik_design",
+    "sha256": "cd94b263f9d6a3d1d447df5db45a0ff199491dc39806ded007d581ccc9078f70",
+    "source": "https://doi.org/10.1038/s41587-024-02143-0",
+    "detail": "Molecule-design portion of Ren Figure 1; lossless crop (1057, 0, 2115, 760) from tnik_fig1",
+    "pixels": [
+      1058,
+      760
+    ],
+    "x": 1.8956047681539807,
+    "y": 2,
+    "w": 6.20878947368421,
+    "h": 4.46,
+    "ppi": 170.40358744394618
+  },
+  {
+    "slide": 35,
+    "key": "tnik_cell",
+    "sha256": "1ca80cefd7922932b6947c38a00927096e0daaace31578f4b8dc12aed484e897",
+    "source": "https://doi.org/10.1038/s41587-024-02143-0",
+    "detail": "Cellular-assay portion of Ren Figure 2; verify source panel before final use; lossless crop (1008, 574, 2102, 1149) from tnik_fig2",
+    "pixels": [
+      1094,
+      575
+    ],
+    "x": 0.7571817585301838,
+    "y": 2,
+    "w": 8.485634782608695,
+    "h": 4.46,
+    "ppi": 128.9237668161435
+  },
+  {
+    "slide": 36,
+    "key": "antibiotics_workflow",
+    "sha256": "5812c03d9f5c0f606ce537ca21793d6a8529f5cc78d1e6a15140199e65067f62",
+    "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12790861/",
+    "detail": "Figure 1. Graph neural networks predict chemical fragments with antibacterial activity against N. gonorrhoeae . Open in a new tab (A) Schematic of the fragment-based generation approach. (B) t-SNE representation of chemical space, showing that GDB fragment libraries represent chemical space diverse from known antibiotics. (C) Rank-ordered fragment prediction scores from the N. gonorrhoeae antibacterial activity model. (D) Computational filters applied to sets of fragments, resulting in final sets of fragments for N. gonorrhoeae . (E) Rank-ordered plot of fragment (above) and compound (below) prediction scores for available compounds procured for empirical testing at 50 μM. (F) Chemical structures of fragment F1 and associated active compounds from (E). The fragment is highlighted in the compounds. (G) MIC and CC 50 values for the compounds in panel (F). n=2, * indicates values >32 μg/mL. See also Figure S1 .",
+    "pixels": [
+      2089,
+      1610
+    ],
+    "x": 2.1065398075240593,
+    "y": 2,
+    "w": 5.786919254658384,
+    "h": 4.46,
+    "ppi": 360.98654708520183
+  },
+  {
+    "slide": 37,
+    "key": "antibiotics_evidence",
+    "sha256": "985ad24eb46903c0821577b674c3842065004a3e4791ff5629c1983999300d1b",
+    "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12790861/",
+    "detail": "Figure 2. Generative deep learning-guided design of compounds containing fragment F1 with predicted antibacterial activity. Open in a new tab (A) Schematic of the genetic algorithm based on F-CReM and examples of filtered generated compounds, with fragment F1 highlighted. (B) Distributions of antibacterial activity prediction scores from five rounds of compound generation using F-CReM. (C) Schematic of the F-VAE algorithm and examples of filtered generated compounds. (D) Computational filters applied to fragment-based designed compounds, resulting in two final sets of compounds shortlisted for chemical synthesis. (E) Molecular weights, topological polar surface area (TPSA), calculated log P (clog P ), hydrogen bond acceptors, hydrogen bond donors, and retrosynthetic accessibility score (RAscore) values for all filtered compounds generated by F-CReM and F-VAE, compared to the median of known Gram-negative antibiotics. (F) Structures of two designed and synthesized compounds, NG1 and NG2 . (G) MICs against N. gonorrhoeae ATCC 49226 and CC 50 values of the compounds for four different human cell types. n=2, * indicates values >128 μg/mL. (H) MICs of compound NG1 against various bacterial species. Results are representative of two biological replicates. See also Figure S2 .",
+    "pixels": [
+      2089,
+      1920
+    ],
+    "x": 2.5737128171478565,
+    "y": 2,
+    "w": 4.8525729166666665,
+    "h": 4.46,
+    "ppi": 430.4932735426009
+  },
+  {
+    "slide": 38,
+    "key": "lyu_cryoem",
+    "sha256": "ac485dbd842af8a2232bca807fa0a1d80654556309e853477cd6f771c07a6552",
+    "source": "https://doi.org/10.2210/pdb8UWL/pdb ; https://doi.org/10.1126/science.adn6354",
+    "detail": "Experimental 5-HT2A complex associated with the Lyu et al. prospective screening study; labelled as experimental follow-up, not an AF2 model.",
+    "pixels": [
+      2400,
+      1500
+    ],
+    "x": 3.75,
+    "y": 1.9418744531933507,
+    "w": 5.85,
+    "h": 3.65625,
+    "ppi": 410.2564102564103
+  },
+  {
+    "slide": 39,
+    "key": "lyu_hit_rates",
+    "sha256": "d2eba0337e2160cfe20eed96abd13abc99ffe56c5497d78a53f05bca75cf964f",
+    "source": "Lyu et al., Science 384, eadn6354 (2024). doi:10.1126/science.adn6354",
+    "detail": "Redrawn published rounded hit rates: AF2 64/119 (~54%); experimental-structure campaign ~51%. Rates not significantly different.",
+    "pixels": [
+      2400,
+      1280
+    ],
+    "x": 0.8187489063867016,
+    "y": 2,
+    "w": 8.3625,
+    "h": 4.46,
+    "ppi": 286.99551569506724
+  },
+  {
+    "slide": 40,
+    "key": "wong_fig3",
+    "sha256": "43c88e4ae33734b7de2537e2e8d48408536f6acdc80badd24476f06ddd978660",
+    "source": "https://doi.org/10.1038/s41586-023-06887-8",
+    "detail": "Public-source original figure; source pixels retained.",
+    "pixels": [
+      2124,
+      883
+    ],
+    "x": 0.43,
+    "y": 2.3301356080489937,
+    "w": 9.14,
+    "h": 3.7997269303201504,
+    "ppi": 232.3851203501094
+  },
+  {
+    "slide": 41,
+    "key": "wong_fig5",
+    "sha256": "266107704fa2aa293e39310972ca2477df673e48e1586528748106c9b891325e",
+    "source": "https://doi.org/10.1038/s41586-023-06887-8",
+    "detail": "Public-source original figure; source pixels retained.",
+    "pixels": [
+      880,
+      1034
+    ],
+    "x": 3.102127077865267,
+    "y": 2,
+    "w": 3.795744680851064,
+    "h": 4.46,
+    "ppi": 231.8385650224215
+  },
+  {
+    "slide": 42,
+    "key": "chemical_checks",
+    "sha256": "bf5d2846c1fd8f1ffe90a9a729064879d3779ac81fd255a4128834fdf1c0a0e6",
+    "source": "Buttenschoen et al., Chem. Sci. 15, 3130–3139 (2024). doi:10.1039/D3SC04185A",
+    "detail": "Original schematic checklist; not model output or experimental data.",
+    "pixels": [
+      2400,
+      1280
+    ],
+    "x": 0.8187489063867016,
+    "y": 2,
+    "w": 8.3625,
+    "h": 4.46,
+    "ppi": 286.99551569506724
+  },
+  {
+    "slide": 43,
+    "key": "hit_comparison",
+    "sha256": "3f8b304280ad517d0122cf318d84cc6653003e2acb3720a4d2ba7563b4b4d5d2",
+    "source": "Hypothetical teaching comparison; not results for a named AI model.",
+    "detail": "Original dot display of two equal-size test sets. Not a statistical demonstration of improvement.",
+    "pixels": [
+      2400,
+      1280
+    ],
+    "x": 0.8187489063867016,
+    "y": 2,
+    "w": 8.3625,
+    "h": 4.46,
+    "ppi": 286.99551569506724
+  },
+  {
+    "slide": 44,
+    "key": "egfr_lapatinib",
+    "sha256": "e4e2e5a253d9db391f94f88e1842bd793e8e7ea05360f6f9c6a1bf01933d084f",
+    "source": "https://doi.org/10.2210/pdb1XKK/pdb",
+    "detail": "New ray-traced rendering of experimental coordinates 1XKK; ligand FMM. Not an AI prediction.",
+    "pixels": [
+      2400,
+      1500
+    ],
+    "x": 3.75,
+    "y": 1.9418744531933507,
+    "w": 5.85,
+    "h": 3.65625,
+    "ppi": 410.2564102564103
+  },
+  {
+    "slide": 45,
+    "key": "rna_validation",
+    "sha256": "4d1935e9cbba613dd0674a8775e6eff39354194d687fa4cba8fedb4a8616684b",
+    "source": "Fei et al., Nat. Biotechnol. (2026). doi:10.1038/s41587-025-02942-z",
+    "detail": "Original chart of published counts: 190 predicted small molecule–RNA interactions tested; 40 confirmed. These are interactions, not necessarily 190 unique molecules.",
+    "pixels": [
+      2400,
+      1280
+    ],
+    "x": 0.8187489063867016,
+    "y": 2,
+    "w": 8.3625,
+    "h": 4.46,
+    "ppi": 286.99551569506724
+  }
+]
