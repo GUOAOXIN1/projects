@@ -1,0 +1,843 @@
+{
+  "slides": 40,
+  "numbering": "7–46",
+  "preserved_intro_in_this_file": false,
+  "aspect_ratio": "4:3",
+  "image_slides": 35,
+  "duplicate_images": [],
+  "warnings": [
+    {
+      "slide": 30,
+      "issue": "effective resolution below 150 ppi",
+      "ppi": 119.5
+    },
+    {
+      "slide": 35,
+      "issue": "effective resolution below 150 ppi",
+      "ppi": 128.9
+    }
+  ],
+  "out_of_bounds": [],
+  "body_fonts": [
+    {
+      "slide": 7,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 7,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 8,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 8,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 9,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 10,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 10,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 11,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 11,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 12,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 12,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 13,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 13,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 14,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 14,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 15,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 15,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 16,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 16,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 17,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 17,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 18,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 18,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 19,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 19,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 20,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 20,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 21,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 21,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 22,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 22,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 23,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 23,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 24,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 24,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 25,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 25,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 26,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 26,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 27,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 27,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 28,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 28,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 29,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 29,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 30,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 30,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 31,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 31,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 32,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 32,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 33,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 33,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 34,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 34,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 35,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 35,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 36,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 36,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 37,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 37,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 38,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 38,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 39,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 39,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 40,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 40,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 41,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 41,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 42,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 42,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 43,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 43,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 44,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 44,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 45,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 45,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 46,
+      "font": "Arial",
+      "size": 18
+    },
+    {
+      "slide": 46,
+      "font": "Arial",
+      "size": 18
+    }
+  ],
+  "title_fonts": [
+    {
+      "slide": 7,
+      "font": "Arial",
+      "size": 24
+    },
+    {
+      "slide": 8,
+      "font": "Arial",
+      "size": 24
+    },
+    {
+      "slide": 9,
+      "font": "Arial",
+      "size": 24
+    },
+    {
+      "slide": 10,
+      "font": "Arial",
+      "size": 24
+    },
+    {
+      "slide": 11,
+      "font": "Arial",
+      "size": 24
+    },
+    {
+      "slide": 12,
+      "font": "Arial",
+      "size": 24
+    },
+    {
+      "slide": 13,
+      "font": "Arial",
+      "size": 24
+    },
+    {
+      "slide": 14,
+      "font": "Arial",
+      "size": 24
+    },
+    {
+      "slide": 15,
+      "font": "Arial",
+      "size": 24
+    },
+    {
+      "slide": 16,
+      "font": "Arial",
+      "size": 24
+    },
+    {
+      "slide": 17,
+      "font": "Arial",
+      "size": 24
+    },
+    {
+      "slide": 18,
+      "font": "Arial",
+      "size": 24
+    },
+    {
+      "slide": 19,
+      "font": "Arial",
+      "size": 24
+    },
+    {
+      "slide": 20,
+      "font": "Arial",
+      "size": 24
+    },
+    {
+      "slide": 21,
+      "font": "Arial",
+      "size": 24
+    },
+    {
+      "slide": 22,
+      "font": "Arial",
+      "size": 24
+    },
+    {
+      "slide": 23,
+      "font": "Arial",
+      "size": 24
+    },
+    {
+      "slide": 24,
+      "font": "Arial",
+      "size": 24
+    },
+    {
+      "slide": 25,
+      "font": "Arial",
+      "size": 24
+    },
+    {
+      "slide": 26,
+      "font": "Arial",
+      "size": 24
+    },
+    {
+      "slide": 27,
+      "font": "Arial",
+      "size": 24
+    },
+    {
+      "slide": 28,
+      "font": "Arial",
+      "size": 24
+    },
+    {
+      "slide": 29,
+      "font": "Arial",
+      "size": 24
+    },
+    {
+      "slide": 30,
+      "font": "Arial",
+      "size": 24
+    },
+    {
+      "slide": 31,
+      "font": "Arial",
+      "size": 24
+    },
+    {
+      "slide": 32,
+      "font": "Arial",
+      "size": 24
+    },
+    {
+      "slide": 33,
+      "font": "Arial",
+      "size": 24
+    },
+    {
+      "slide": 34,
+      "font": "Arial",
+      "size": 24
+    },
+    {
+      "slide": 35,
+      "font": "Arial",
+      "size": 24
+    },
+    {
+      "slide": 36,
+      "font": "Arial",
+      "size": 24
+    },
+    {
+      "slide": 37,
+      "font": "Arial",
+      "size": 24
+    },
+    {
+      "slide": 38,
+      "font": "Arial",
+      "size": 24
+    },
+    {
+      "slide": 39,
+      "font": "Arial",
+      "size": 24
+    },
+    {
+      "slide": 40,
+      "font": "Arial",
+      "size": 24
+    },
+    {
+      "slide": 41,
+      "font": "Arial",
+      "size": 24
+    },
+    {
+      "slide": 42,
+      "font": "Arial",
+      "size": 24
+    },
+    {
+      "slide": 43,
+      "font": "Arial",
+      "size": 24
+    },
+    {
+      "slide": 44,
+      "font": "Arial",
+      "size": 24
+    },
+    {
+      "slide": 45,
+      "font": "Arial",
+      "size": 24
+    },
+    {
+      "slide": 46,
+      "font": "Arial",
+      "size": 24
+    }
+  ],
+  "forbidden_source_images": [],
+  "rendered_page_count": 40,
+  "missing_title_words": [],
+  "rendered_text_outside_page": [],
+  "visual_inspection_status": "Rendered previews created; human/model visual review is still required.",
+  "independent_xml_check": {
+    "slides": 40,
+    "duplicate_image_slide_groups": [],
+    "image_metadata": [
+      {
+        "slide": 7,
+        "width": 2116,
+        "height": 491,
+        "hash": "020a478dc383da044508600c1a39fb8c3ac3464de09f70d86ecc2da43e7f1856"
+      },
+      {
+        "slide": 10,
+        "width": 1015,
+        "height": 760,
+        "hash": "cd9d841cbec9d7684f46b79c5c944400a5b00c5a4e5408964ac48b5949ee3f04"
+      },
+      {
+        "slide": 11,
+        "width": 2400,
+        "height": 1500,
+        "hash": "024b454f23cdb578f03881e72294e4de1eb17afa88e56f90ff9293499378753c"
+      },
+      {
+        "slide": 12,
+        "width": 1413,
+        "height": 780,
+        "hash": "c269b97fe330fa03fdf019f5b71afa133df031f0f234f4df61d50c9699684a32"
+      },
+      {
+        "slide": 13,
+        "width": 1081,
+        "height": 803,
+        "hash": "cd021800a74b967c04ef4a3f3bb433054f16f52f3ec337d65808bdeeb10e69f0"
+      },
+      {
+        "slide": 14,
+        "width": 2400,
+        "height": 1500,
+        "hash": "4dd2fff138f78efb4bb109bec722be46b365e25fcc8976b640a4f252f77ad0b6"
+      },
+      {
+        "slide": 15,
+        "width": 2400,
+        "height": 1280,
+        "hash": "c54f442e7f3b10a8f76ea0a871702234764c891a1571972f6c433af329dfc5af"
+      },
+      {
+        "slide": 16,
+        "width": 2400,
+        "height": 1500,
+        "hash": "31d9ada503499ab3b4460ef5824a70a9f258a22848b71ef1fcabf196a86c45fc"
+      },
+      {
+        "slide": 17,
+        "width": 2400,
+        "height": 1500,
+        "hash": "7a033b52f6b469c0b6a7b8537c19ecc90eab1f35d2ad62c20b4dcc29292fa751"
+      },
+      {
+        "slide": 18,
+        "width": 2400,
+        "height": 1500,
+        "hash": "1e46af09a6b6626366dc8b0af98cee3b2f186a2ac62bb70e8b5cabb1d34a5ea2"
+      },
+      {
+        "slide": 20,
+        "width": 2400,
+        "height": 1500,
+        "hash": "332f5ef17b107de4259da1b73262d84f821378f38dd0947a27e156a18cb1618c"
+      },
+      {
+        "slide": 21,
+        "width": 2400,
+        "height": 1500,
+        "hash": "eca8469811f8664a060785c7c40efa24d8b8df671dd269fe41bc5a8fd997eeb1"
+      },
+      {
+        "slide": 22,
+        "width": 2400,
+        "height": 1500,
+        "hash": "8ab5773cbfc3cea59977cff1b71976d5f6a93bc3eeec20e10fce93106bd8829f"
+      },
+      {
+        "slide": 23,
+        "width": 2400,
+        "height": 1280,
+        "hash": "a54f7dc51cb2751a74508ddf8ada73a5f46343b183d1f29c620d312d646f43a9"
+      },
+      {
+        "slide": 24,
+        "width": 2400,
+        "height": 1280,
+        "hash": "ac54d6dcda9f358ea701a74472acbc011e16560ef35c28cb004913551a2f1eed"
+      },
+      {
+        "slide": 25,
+        "width": 2400,
+        "height": 1280,
+        "hash": "ea67c1708ffe1cf9a0eb00bd15237f944b579d5c669ee55f8474528668188a92"
+      },
+      {
+        "slide": 26,
+        "width": 2400,
+        "height": 1500,
+        "hash": "514b20f1d5c00e1e6b2d56b855110dae45a02bf0d0607c3bd6b30e3eab7f7eeb"
+      },
+      {
+        "slide": 27,
+        "width": 1652,
+        "height": 759,
+        "hash": "70e9dde845971d1508baee0213b6264727e1411e1dfa65681eabaf7d2faea1d5"
+      },
+      {
+        "slide": 28,
+        "width": 2400,
+        "height": 1280,
+        "hash": "e40133a449db1ccde1ea192cdc4220840c75539b7368cec711256545b81be3ac"
+      },
+      {
+        "slide": 29,
+        "width": 2400,
+        "height": 1500,
+        "hash": "50c62013f4d19f891431fe696654a172d0a7f38b7ce9b606a9bffd1741dbb0de"
+      },
+      {
+        "slide": 30,
+        "width": 966,
+        "height": 533,
+        "hash": "c9bc8767d56265c229faa02a78a5560f9ac7ba4faae3d76a93748669c3906998"
+      },
+      {
+        "slide": 31,
+        "width": 1501,
+        "height": 1002,
+        "hash": "149cfd821ada958da4311da8f73fc4db5ab10ebd6bdd7a6483d7db9a01ca11b7"
+      },
+      {
+        "slide": 32,
+        "width": 2400,
+        "height": 1280,
+        "hash": "966ee111a16a25e80746c8cf846cfd1e3adf00166a8ab980f1e8e00049e1b4a8"
+      },
+      {
+        "slide": 34,
+        "width": 1058,
+        "height": 760,
+        "hash": "cd94b263f9d6a3d1d447df5db45a0ff199491dc39806ded007d581ccc9078f70"
+      },
+      {
+        "slide": 35,
+        "width": 1094,
+        "height": 575,
+        "hash": "1ca80cefd7922932b6947c38a00927096e0daaace31578f4b8dc12aed484e897"
+      },
+      {
+        "slide": 36,
+        "width": 2089,
+        "height": 1610,
+        "hash": "5812c03d9f5c0f606ce537ca21793d6a8529f5cc78d1e6a15140199e65067f62"
+      },
+      {
+        "slide": 37,
+        "width": 2089,
+        "height": 1920,
+        "hash": "985ad24eb46903c0821577b674c3842065004a3e4791ff5629c1983999300d1b"
+      },
+      {
+        "slide": 38,
+        "width": 2400,
+        "height": 1500,
+        "hash": "ac485dbd842af8a2232bca807fa0a1d80654556309e853477cd6f771c07a6552"
+      },
+      {
+        "slide": 39,
+        "width": 2400,
+        "height": 1280,
+        "hash": "d2eba0337e2160cfe20eed96abd13abc99ffe56c5497d78a53f05bca75cf964f"
+      },
+      {
+        "slide": 40,
+        "width": 2124,
+        "height": 883,
+        "hash": "43c88e4ae33734b7de2537e2e8d48408536f6acdc80badd24476f06ddd978660"
+      },
+      {
+        "slide": 41,
+        "width": 880,
+        "height": 1034,
+        "hash": "266107704fa2aa293e39310972ca2477df673e48e1586528748106c9b891325e"
+      },
+      {
+        "slide": 42,
+        "width": 2400,
+        "height": 1280,
+        "hash": "bf5d2846c1fd8f1ffe90a9a729064879d3779ac81fd255a4128834fdf1c0a0e6"
+      },
+      {
+        "slide": 43,
+        "width": 2400,
+        "height": 1280,
+        "hash": "3f8b304280ad517d0122cf318d84cc6653003e2acb3720a4d2ba7563b4b4d5d2"
+      },
+      {
+        "slide": 44,
+        "width": 2400,
+        "height": 1500,
+        "hash": "e4e2e5a253d9db391f94f88e1842bd793e8e7ea05360f6f9c6a1bf01933d084f"
+      },
+      {
+        "slide": 45,
+        "width": 2400,
+        "height": 1280,
+        "hash": "4d1935e9cbba613dd0674a8775e6eff39354194d687fa4cba8fedb4a8616684b"
+      }
+    ]
+  },
+  "original_first_six_included": false,
+  "inspected_source": "Previously completed public-source GitHub build; no user source presentations accessed"
+}
