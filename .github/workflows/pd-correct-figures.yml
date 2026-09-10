@@ -1,0 +1,51 @@
+name: Correct scientific figure inputs
+on:
+  workflow_dispatch:
+  push:
+    paths: ['.github/workflows/pd-correct-figures.yml']
+permissions:
+  contents: write
+  actions: read
+jobs:
+  figure-inputs:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - run: npm install --no-audit --no-fund adm-zip sharp pdf-lib
+      - name: Retrieve original figure panels and assemble inspection contact sheets
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          node --input-type=module <<'JS'
+          import fs from 'node:fs';
+          import sharp from 'sharp';
+          import {PDFDocument} from 'pdf-lib';
+          const api='https://api.github.com/repos/'+process.env.REPO;
+          const auth={Authorization:'Bearer '+process.env.GH_TOKEN};
+          fs.mkdirSync('figure-fix',{recursive:true});
+          async function bytes(url,headers={}){const r=await fetch(url,{headers,signal:AbortSignal.timeout(60000)});if(!r.ok)throw Error(r.status+' '+url);return Buffer.from(await r.arrayBuffer());}
+          async function publish(name,b){const u=api+'/contents/diagnostics/pd-review/'+name;let sha;const g=await fetch(u,{headers:auth});if(g.ok)sha=(await g.json()).sha;const r=await fetch(u,{method:'PUT',headers:{...auth,'Content-Type':'application/json'},body:JSON.stringify({message:'Update public figure inspection '+name,content:b.toString('base64'),...(sha?{sha}:{})})});if(!r.ok)throw Error(await r.text());}
+          const meta=[];const pages=[];
+          for(const [number,label] of [[9,'TNIK_Extended_Data_3'],[10,'TNIK_Extended_Data_4']]){
+            const page='https://www.nature.com/articles/s41587-024-02143-0/figures/'+number;
+            try{
+              const html=(await bytes(page,{'User-Agent':'Mozilla/5.0'})).toString();
+              const matches=[...html.matchAll(/(?:https?:)?\/\/media\.springernature\.com[^\s\"'<>]+/g)].map(m=>m[0].replaceAll('&amp;','&'));
+              const candidates=[...new Set(matches.filter(u=>u.includes('41587_2024_2143')&&new RegExp('Fig'+number+'[_\\.]').test(u)).map(u=>u.replace(/^\/\//,'https://').replace(/\/lw\d+\//,'/full/').replace(/\/m\d+\//,'/full/')))];
+              if(!candidates.length){meta.push({label,page,status:'no matching figure URL',imageUrls:matches.slice(0,10)});continue;}
+              let ok=false;for(const u of candidates){try{const b=await bytes(u);const m=await sharp(b).metadata();const png=await sharp(b).png().toBuffer();fs.writeFileSync('figure-fix/'+label+'.png',png);await publish(label+'.png',png);meta.push({label,page,url:u,width:m.width,height:m.height,status:'retrieved'});pages.push({label,bytes:png,w:m.width,h:m.height});ok=true;break;}catch(e){console.log('candidate failed',String(e));}}
+              if(!ok)meta.push({label,page,status:'all image fetches failed',candidates});
+            }catch(e){meta.push({label,page,status:'failed',error:String(e)});}
+          }
+          const pdf=await PDFDocument.create();
+          for(let n=7;n<=46;n+=6){const u='https://raw.githubusercontent.com/'+process.env.REPO+'/main/diagnostics/pd-review/sheet_'+String(n).padStart(2,'0')+'.jpg';const jpg=await bytes(u);const img=await pdf.embedJpg(jpg);const p=pdf.addPage([812,918]);p.drawImage(img,{x:0,y:0,width:812,height:918});}
+          for(const f of pages){const img=await pdf.embedPng(f.bytes);const scale=Math.min(1000/f.w,1100/f.h);const p=pdf.addPage([f.w*scale,f.h*scale]);p.drawImage(img,{x:0,y:0,width:f.w*scale,height:f.h*scale});}
+          const review=Buffer.from(await pdf.save());fs.writeFileSync('figure-fix/inspection-contact.pdf',review);await publish('inspection-contact.pdf',review);const info=Buffer.from(JSON.stringify(meta,null,2));fs.writeFileSync('figure-fix/replacement-inputs.json',info);await publish('replacement-inputs.json',info);
+          console.log(JSON.stringify(meta,null,2));
+          JS
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: corrected-public-figure-inputs
+          path: figure-fix/
+          retention-days: 3
