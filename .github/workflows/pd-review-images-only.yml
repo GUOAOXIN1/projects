@@ -1,0 +1,68 @@
+name: Inspect corrected teaching slides without PDF
+on:
+  push:
+    paths: ['.github/workflows/pd-review-images-only.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  inspect:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - run: python -m pip install --quiet Pillow python-docx requests
+      - name: Recover corrected slide renders
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          python - <<'PY'
+          import os,io,zipfile,json
+          from pathlib import Path
+          import requests
+          from PIL import Image,ImageDraw
+          from docx import Document
+          from docx.shared import Inches
+          from docx.oxml import OxmlElement
+          from docx.oxml.ns import qn
+          h={'Authorization':'Bearer '+os.environ['GH_TOKEN']}
+          u='https://api.github.com/repos/'+os.environ['REPO']+'/actions/artifacts/10153687782/zip'
+          r=requests.get(u,headers=h,timeout=90);r.raise_for_status()
+          out=Path('inspection');out.mkdir()
+          with zipfile.ZipFile(io.BytesIO(r.content)) as z:
+              for i in range(7,47):
+                  name=f'slide_{i:02}.png'
+                  es=[e for e in z.namelist() if e.endswith('/'+name) or e==name]
+                  assert len(es)==1,(i,es)
+                  (out/name).write_bytes(z.read(es[0]))
+          doc=Document(); sec=doc.sections[0];sec.page_width=Inches(10);sec.page_height=Inches(7.5)
+          sec.top_margin=sec.bottom_margin=sec.left_margin=sec.right_margin=Inches(.02)
+          for i in range(7,47):
+              p=doc.add_paragraph();p.paragraph_format.space_before=0;p.paragraph_format.space_after=0
+              if i>7:p.paragraph_format.page_break_before=True
+              p.add_run().add_picture(str(out/f'slide_{i:02}.png'),width=Inches(9.90))
+          doc.save(out/'inspection.docx')
+          with zipfile.ZipFile(out/'inspection.docx') as z:z.extractall(out/'docx-package')
+          for start in range(7,47,6):
+              canvas=Image.new('RGB',(1920,2160),'white')
+              for k in range(6):
+                  i=start+k
+                  if i>46:break
+                  im=Image.open(out/f'slide_{i:02}.png').convert('RGB').resize((960,720))
+                  canvas.paste(im,((k%2)*960,(k//2)*720))
+              canvas.save(out/f'contact_{start:02}.png')
+          assert not list(out.rglob('*.pdf'))
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: review-docx-package
+          path: inspection/docx-package/
+          include-hidden-files: true
+          retention-days: 2
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: first-review-image
+          path: inspection/contact_07.png
+          compression-level: 0
+          retention-days: 2
