@@ -1,0 +1,771 @@
+{
+  "file": "AI_in_PD_Unique_Figures_Teaching_7-46.pptx",
+  "slides": 40,
+  "numbering": "7-46",
+  "first_six_included": false,
+  "original_user_presentations_accessed": false,
+  "no_Molecular_Drug_Targets_images": true,
+  "image_slides": 34,
+  "image_percentage": 85.0,
+  "duplicate_image_slide_groups": [],
+  "duplicate_pixel_slide_groups": [],
+  "revisions": [
+    {
+      "stage": "Source and layout reconstruction",
+      "changes": "Replaced incorrect binding/cellular crops; rebuilt 40 slides from distinct source-specific assets and verified package reopening.",
+      "saved_file": "revision_01.pptx",
+      "slide_xml_hash": "bc2c0e78d7a5f961b181df4291339283852328e51987726b848342d540458b39",
+      "out_of_bounds": []
+    },
+    {
+      "stage": "Typography and spacing",
+      "changes": "Body spacing normalized; captions remain 16-point and no body text is reduced.",
+      "saved_file": "revision_02.pptx",
+      "slide_xml_hash": "d1d12678404fdbb2149b9d614fba905776db1cb60a35ed94f03828188dd3f135",
+      "out_of_bounds": []
+    },
+    {
+      "stage": "Text-fit adjustment",
+      "changes": "Adjusted measured native text boxes without changing the requested font sizes; recorded every estimated fit exception.",
+      "saved_file": "revision_03.pptx",
+      "slide_xml_hash": "642fced73b858220e073d59a007eacd37c91ee860fa3a94ee2b5ae0080296f61",
+      "out_of_bounds": []
+    },
+    {
+      "stage": "Scientific typography and source consistency",
+      "changes": "Explicit Arial and red 24-point titles rechecked; predictions and experiments remain labelled separately.",
+      "saved_file": "revision_04.pptx",
+      "slide_xml_hash": "642fced73b858220e073d59a007eacd37c91ee860fa3a94ee2b5ae0080296f61",
+      "out_of_bounds": []
+    }
+  ],
+  "font_fit_adjustments": [
+    {
+      "slide": 31,
+      "shape": "body",
+      "estimated_lines": 3,
+      "needed": 1.03,
+      "available": 0.97
+    }
+  ],
+  "images": [
+    {
+      "slide": 7,
+      "shape": "FIGURE:af3_intro_trimmed",
+      "pixels": [
+        1771,
+        489
+      ],
+      "display_inches": [
+        9.16,
+        2.529
+      ],
+      "ppi": 193.3,
+      "sha256": "dc008bfbb2b4a1473fd4f8127aac72f2fa2715d28a530e18909b8ffd898e8a4e"
+    },
+    {
+      "slide": 11,
+      "shape": "FIGURE:pde5_sildenafil",
+      "pixels": [
+        1686,
+        1500
+      ],
+      "display_inches": [
+        5.82,
+        5.178
+      ],
+      "ppi": 289.7,
+      "sha256": "15ffb29f7bfa2e9f85431cbb14537b9003a493feb806831b24fce7d59003476e"
+    },
+    {
+      "slide": 12,
+      "shape": "FIGURE:af3_fig3",
+      "pixels": [
+        1413,
+        780
+      ],
+      "display_inches": [
+        7.681,
+        4.24
+      ],
+      "ppi": 184.0,
+      "sha256": "c269b97fe330fa03fdf019f5b71afa133df031f0f234f4df61d50c9699684a32"
+    },
+    {
+      "slide": 13,
+      "shape": "FIGURE:dgat2_p2rank",
+      "pixels": [
+        750,
+        505
+      ],
+      "display_inches": [
+        4.42,
+        2.976
+      ],
+      "ppi": 169.7,
+      "sha256": "21371614a1ee13a3fef1d8053fa7446433f6b50f0f6f5fca38cd1c47b19f937b"
+    },
+    {
+      "slide": 13,
+      "shape": "FIGURE:dgat2_docked",
+      "pixels": [
+        643,
+        505
+      ],
+      "display_inches": [
+        4.23,
+        3.322
+      ],
+      "ppi": 152.0,
+      "sha256": "46d94cf4b277496cd971c080c6deb2a10d8b0bd7ef55db9358ee3a1c9810fcce"
+    },
+    {
+      "slide": 14,
+      "shape": "FIGURE:gpcr_states",
+      "pixels": [
+        2148,
+        1175
+      ],
+      "display_inches": [
+        5.82,
+        3.184
+      ],
+      "ppi": 369.1,
+      "sha256": "affbf12377ceabaa145122d36fae31445a7e08e7192f88c4076abcdfe5815da1"
+    },
+    {
+      "slide": 15,
+      "shape": "FIGURE:adrenaline_input",
+      "pixels": [
+        2400,
+        1280
+      ],
+      "display_inches": [
+        7.95,
+        4.24
+      ],
+      "ppi": 301.9,
+      "sha256": "c54f442e7f3b10a8f76ea0a871702234764c891a1571972f6c433af329dfc5af"
+    },
+    {
+      "slide": 16,
+      "shape": "FIGURE:egfr_erlotinib",
+      "pixels": [
+        2400,
+        1500
+      ],
+      "display_inches": [
+        5.82,
+        3.638
+      ],
+      "ppi": 412.4,
+      "sha256": "00ae9210b0aa15a15f1b075f92eaebcaa663ef7f3823ce71bd91915d29c84406"
+    },
+    {
+      "slide": 17,
+      "shape": "FIGURE:hmgr_rosuvastatin",
+      "pixels": [
+        2263,
+        1500
+      ],
+      "display_inches": [
+        5.82,
+        3.858
+      ],
+      "ppi": 388.8,
+      "sha256": "02c2163fb4c7f1eab9be469206c0b36b8be840fca278d1af451be8442e5109f0"
+    },
+    {
+      "slide": 18,
+      "shape": "FIGURE:allosteric_pocket",
+      "pixels": [
+        1536,
+        1012
+      ],
+      "display_inches": [
+        5.82,
+        3.835
+      ],
+      "ppi": 263.9,
+      "sha256": "e9a1940731a32558069245e3f33559247ecde0c0caa693631d1e7d583c7175f4"
+    },
+    {
+      "slide": 20,
+      "shape": "FIGURE:er_states",
+      "pixels": [
+        1288,
+        1112
+      ],
+      "display_inches": [
+        5.82,
+        5.025
+      ],
+      "ppi": 221.3,
+      "sha256": "3ae2d507b10575678ed61ea64d8da97bc0cf1b5c211c1312feabc93767063854"
+    },
+    {
+      "slide": 21,
+      "shape": "FIGURE:pbp_ampicillin",
+      "pixels": [
+        2278,
+        1500
+      ],
+      "display_inches": [
+        5.82,
+        3.832
+      ],
+      "ppi": 391.4,
+      "sha256": "16102c91768c38aaf0868a1bc89e7cc63db72e8bcd1200c54986cd4897e24972"
+    },
+    {
+      "slide": 22,
+      "shape": "FIGURE:herg_channel",
+      "pixels": [
+        1305,
+        1100
+      ],
+      "display_inches": [
+        5.82,
+        4.906
+      ],
+      "ppi": 224.2,
+      "sha256": "55ceb222e738be6eccc71bc981a11a7f5625cfacca32eb6a0b4af933fd16b2af"
+    },
+    {
+      "slide": 23,
+      "shape": "FIGURE:screening_collection",
+      "pixels": [
+        2400,
+        1280
+      ],
+      "display_inches": [
+        7.95,
+        4.24
+      ],
+      "ppi": 301.9,
+      "sha256": "a54f7dc51cb2751a74508ddf8ada73a5f46343b183d1f29c620d312d646f43a9"
+    },
+    {
+      "slide": 24,
+      "shape": "FIGURE:assay_examples",
+      "pixels": [
+        2400,
+        1280
+      ],
+      "display_inches": [
+        7.95,
+        4.24
+      ],
+      "ppi": 301.9,
+      "sha256": "ac54d6dcda9f358ea701a74472acbc011e16560ef35c28cb004913551a2f1eed"
+    },
+    {
+      "slide": 25,
+      "shape": "FIGURE:xanthine_pair",
+      "pixels": [
+        2400,
+        1280
+      ],
+      "display_inches": [
+        7.95,
+        4.24
+      ],
+      "ppi": 301.9,
+      "sha256": "ea67c1708ffe1cf9a0eb00bd15237f944b579d5c669ee55f8474528668188a92"
+    },
+    {
+      "slide": 26,
+      "shape": "FIGURE:rna_theophylline",
+      "pixels": [
+        1307,
+        760
+      ],
+      "display_inches": [
+        5.82,
+        3.384
+      ],
+      "ppi": 224.6,
+      "sha256": "1f085fbfe8b82b639b72c11978a6e34625aae1d35dee57c0174e1f9cb29f14c6"
+    },
+    {
+      "slide": 27,
+      "shape": "FIGURE:reinvent_fig4",
+      "pixels": [
+        1652,
+        759
+      ],
+      "display_inches": [
+        9.16,
+        4.208
+      ],
+      "ppi": 180.3,
+      "sha256": "70e9dde845971d1508baee0213b6264727e1411e1dfa65681eabaf7d2faea1d5"
+    },
+    {
+      "slide": 28,
+      "shape": "FIGURE:selectivity_panel",
+      "pixels": [
+        2400,
+        1280
+      ],
+      "display_inches": [
+        7.95,
+        4.24
+      ],
+      "ppi": 301.9,
+      "sha256": "e40133a449db1ccde1ea192cdc4220840c75539b7368cec711256545b81be3ac"
+    },
+    {
+      "slide": 29,
+      "shape": "FIGURE:dna_complex",
+      "pixels": [
+        2400,
+        1500
+      ],
+      "display_inches": [
+        5.82,
+        3.638
+      ],
+      "ppi": 412.4,
+      "sha256": "50c62013f4d19f891431fe696654a172d0a7f38b7ce9b606a9bffd1741dbb0de"
+    },
+    {
+      "slide": 30,
+      "shape": "FIGURE:spr_illustrative",
+      "pixels": [
+        2800,
+        1450
+      ],
+      "display_inches": [
+        8.188,
+        4.24
+      ],
+      "ppi": 342.0,
+      "sha256": "f337af322585c9be2cb1f7ec636a657a43ae35eec9bd7e183d05f499587d6f5e"
+    },
+    {
+      "slide": 31,
+      "shape": "FIGURE:cellpaint_fig1",
+      "pixels": [
+        1501,
+        1002
+      ],
+      "display_inches": [
+        6.352,
+        4.24
+      ],
+      "ppi": 236.3,
+      "sha256": "149cfd821ada958da4311da8f73fc4db5ab10ebd6bdd7a6483d7db9a01ca11b7"
+    },
+    {
+      "slide": 32,
+      "shape": "FIGURE:profile_comparison",
+      "pixels": [
+        2400,
+        1280
+      ],
+      "display_inches": [
+        7.95,
+        4.24
+      ],
+      "ppi": 301.9,
+      "sha256": "966ee111a16a25e80746c8cf846cfd1e3adf00166a8ab980f1e8e00049e1b4a8"
+    },
+    {
+      "slide": 34,
+      "shape": "FIGURE:tnik_design_focused",
+      "pixels": [
+        895,
+        525
+      ],
+      "display_inches": [
+        5.82,
+        3.414
+      ],
+      "ppi": 153.8,
+      "sha256": "58d788451996d2a01684ba67cfde80d1d1902e7109c27762235a16a4beb0298a"
+    },
+    {
+      "slide": 35,
+      "shape": "FIGURE:rentosertib_structure",
+      "pixels": [
+        1939,
+        894
+      ],
+      "display_inches": [
+        4.8,
+        2.213
+      ],
+      "ppi": 404.0,
+      "sha256": "0278c00fccccebae451b3c1aacdcd9d46746b4e47d30c38e90e266a5e5e73914"
+    },
+    {
+      "slide": 35,
+      "shape": "FIGURE:tnik_mrc5",
+      "pixels": [
+        622,
+        492
+      ],
+      "display_inches": [
+        3.98,
+        3.148
+      ],
+      "ppi": 156.3,
+      "sha256": "6b15be40005f157344647d2ce278ff2c1ef25796dcccf3d90360cbefe1aeefce"
+    },
+    {
+      "slide": 36,
+      "shape": "FIGURE:antibiotics_workflow",
+      "pixels": [
+        2089,
+        1610
+      ],
+      "display_inches": [
+        5.501,
+        4.24
+      ],
+      "ppi": 379.7,
+      "sha256": "5812c03d9f5c0f606ce537ca21793d6a8529f5cc78d1e6a15140199e65067f62"
+    },
+    {
+      "slide": 37,
+      "shape": "FIGURE:antibiotics_evidence",
+      "pixels": [
+        2089,
+        1920
+      ],
+      "display_inches": [
+        4.613,
+        4.24
+      ],
+      "ppi": 452.8,
+      "sha256": "985ad24eb46903c0821577b674c3842065004a3e4791ff5629c1983999300d1b"
+    },
+    {
+      "slide": 38,
+      "shape": "FIGURE:lyu_cryoem",
+      "pixels": [
+        1339,
+        1186
+      ],
+      "display_inches": [
+        5.82,
+        5.155
+      ],
+      "ppi": 230.1,
+      "sha256": "0826518a53c8a77a1a9195468ee0ca3ca4a3b1a2daee6835fb3efe0e87967937"
+    },
+    {
+      "slide": 39,
+      "shape": "FIGURE:lyu_hit_rates",
+      "pixels": [
+        2400,
+        1280
+      ],
+      "display_inches": [
+        7.95,
+        4.24
+      ],
+      "ppi": 301.9,
+      "sha256": "d2eba0337e2160cfe20eed96abd13abc99ffe56c5497d78a53f05bca75cf964f"
+    },
+    {
+      "slide": 40,
+      "shape": "FIGURE:wong_fig3",
+      "pixels": [
+        2124,
+        883
+      ],
+      "display_inches": [
+        9.16,
+        3.808
+      ],
+      "ppi": 231.9,
+      "sha256": "43c88e4ae33734b7de2537e2e8d48408536f6acdc80badd24476f06ddd978660"
+    },
+    {
+      "slide": 41,
+      "shape": "FIGURE:wong_fig5",
+      "pixels": [
+        880,
+        1034
+      ],
+      "display_inches": [
+        3.609,
+        4.24
+      ],
+      "ppi": 243.9,
+      "sha256": "266107704fa2aa293e39310972ca2477df673e48e1586528748106c9b891325e"
+    },
+    {
+      "slide": 42,
+      "shape": "FIGURE:chemical_checks",
+      "pixels": [
+        2400,
+        1280
+      ],
+      "display_inches": [
+        7.95,
+        4.24
+      ],
+      "ppi": 301.9,
+      "sha256": "bf5d2846c1fd8f1ffe90a9a729064879d3779ac81fd255a4128834fdf1c0a0e6"
+    },
+    {
+      "slide": 43,
+      "shape": "FIGURE:hit_comparison",
+      "pixels": [
+        2400,
+        1280
+      ],
+      "display_inches": [
+        7.95,
+        4.24
+      ],
+      "ppi": 301.9,
+      "sha256": "3f8b304280ad517d0122cf318d84cc6653003e2acb3720a4d2ba7563b4b4d5d2"
+    },
+    {
+      "slide": 44,
+      "shape": "FIGURE:egfr_lapatinib",
+      "pixels": [
+        1856,
+        1500
+      ],
+      "display_inches": [
+        5.82,
+        4.704
+      ],
+      "ppi": 318.9,
+      "sha256": "c20515885c2cf73a17d0ef22a317f37d95b825dfcb93d0c7149a957f4e77eff4"
+    },
+    {
+      "slide": 45,
+      "shape": "FIGURE:rna_validation",
+      "pixels": [
+        2400,
+        1280
+      ],
+      "display_inches": [
+        7.95,
+        4.24
+      ],
+      "ppi": 301.9,
+      "sha256": "4d1935e9cbba613dd0674a8775e6eff39354194d687fa4cba8fedb4a8616684b"
+    }
+  ],
+  "publication_source_check": "Specific figure identities and evidence types checked; source-panel locations additionally checked from publication text.",
+  "visual_review_status": "All slides rendered to PNG and SVG and their title/body/caption text checked. Full-resolution human/model visual inspection is not claimed.",
+  "pdf_generated": false,
+  "rendered_slides": [
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "direct_png_svg_render": true,
+  "missing_rendered_title_body_caption": [],
+  "blank_rendered_slides": [],
+  "body_picture_overlaps": [],
+  "native_preview_sizes": {
+    "slide_07.png": [
+      960,
+      720
+    ],
+    "slide_08.png": [
+      960,
+      720
+    ],
+    "slide_09.png": [
+      960,
+      720
+    ],
+    "slide_10.png": [
+      960,
+      720
+    ],
+    "slide_11.png": [
+      960,
+      720
+    ],
+    "slide_12.png": [
+      960,
+      720
+    ],
+    "slide_13.png": [
+      960,
+      720
+    ],
+    "slide_14.png": [
+      960,
+      720
+    ],
+    "slide_15.png": [
+      960,
+      720
+    ],
+    "slide_16.png": [
+      960,
+      720
+    ],
+    "slide_17.png": [
+      960,
+      720
+    ],
+    "slide_18.png": [
+      960,
+      720
+    ],
+    "slide_19.png": [
+      960,
+      720
+    ],
+    "slide_20.png": [
+      960,
+      720
+    ],
+    "slide_21.png": [
+      960,
+      720
+    ],
+    "slide_22.png": [
+      960,
+      720
+    ],
+    "slide_23.png": [
+      960,
+      720
+    ],
+    "slide_24.png": [
+      960,
+      720
+    ],
+    "slide_25.png": [
+      960,
+      720
+    ],
+    "slide_26.png": [
+      960,
+      720
+    ],
+    "slide_27.png": [
+      960,
+      720
+    ],
+    "slide_28.png": [
+      960,
+      720
+    ],
+    "slide_29.png": [
+      960,
+      720
+    ],
+    "slide_30.png": [
+      960,
+      720
+    ],
+    "slide_31.png": [
+      960,
+      720
+    ],
+    "slide_32.png": [
+      960,
+      720
+    ],
+    "slide_33.png": [
+      960,
+      720
+    ],
+    "slide_34.png": [
+      960,
+      720
+    ],
+    "slide_35.png": [
+      960,
+      720
+    ],
+    "slide_36.png": [
+      960,
+      720
+    ],
+    "slide_37.png": [
+      960,
+      720
+    ],
+    "slide_38.png": [
+      960,
+      720
+    ],
+    "slide_39.png": [
+      960,
+      720
+    ],
+    "slide_40.png": [
+      960,
+      720
+    ],
+    "slide_41.png": [
+      960,
+      720
+    ],
+    "slide_42.png": [
+      960,
+      720
+    ],
+    "slide_43.png": [
+      960,
+      720
+    ],
+    "slide_44.png": [
+      960,
+      720
+    ],
+    "slide_45.png": [
+      960,
+      720
+    ],
+    "slide_46.png": [
+      960,
+      720
+    ]
+  },
+  "pptx_sha256": "bb3f9bbe934c4a33c599237d7eaac4ed4c2312f4e551fc09f930140863cdaa18",
+  "file_size": 13630207,
+  "preview_note": "Native PNG previews are 960 by 720. This does not resample or reduce the embedded scientific images."
+}
