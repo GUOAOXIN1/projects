@@ -1,0 +1,43 @@
+name: Native PowerPoint corrections
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'native_finish/**'
+      - '.github/workflows/native-pd-finish.yml'
+permissions:
+  contents: write
+  actions: read
+jobs:
+  correct:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Install native JavaScript tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends tesseract-ocr libreoffice-impress fonts-liberation2
+          npm install --prefix native_finish --no-audit --no-fund adm-zip sharp @xmldom/xmldom
+      - name: Apply PowerPoint corrections without Python
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node native_finish/revise.cjs
+      - name: Export revised editable PowerPoint package
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: AI-PD-Native-Revised-PowerPoint
+          path: native-output/pptx-package/
+          include-hidden-files: true
+          retention-days: 7
+          if-no-files-found: error
+      - name: Export correction records and actual PowerPoint
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: AI-PD-Native-Correction-Records
+          path: |
+            native-output/output/
+            native-output/ocr/
+          retention-days: 7
+          if-no-files-found: warn
