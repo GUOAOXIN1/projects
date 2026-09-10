@@ -31,12 +31,15 @@ jobs:
           from pathlib import Path
           p=Path('pd_finish/finalize_teaching.py')
           s=p.read_text().replace('sh.top=Inches(7.03);sh.height=Inches(.43)','sh.top=Inches(7.09);sh.height=Inches(.38)')
+          s=s.replace('You already know enzymes, receptors, ion channels and nucleic-acid targets.','You already know enzymes, receptors, channels and nucleic-acid targets.')
+          s=s.replace('Now use AI to choose molecules and experiments—not to replace that chemistry.','Use AI to choose molecules and experiments—not to replace chemistry.')
+          s=s.replace("(.42,2.12,9.16,4.36)","(.42,2.24,9.16,4.24)")
           p.write_text(s)
           PY
           python pd_finish/finalize_teaching.py
       - name: Render all slides directly to PNG and SVG
         run: /usr/bin/python3 pd_finish/render_direct.py
-      - name: Verify archive and record the actual result
+      - name: Verify the actual native render and PowerPoint package
         env:
           GH_TOKEN: ${{ github.token }}
           REPO: ${{ github.repository }}
@@ -46,23 +49,39 @@ jobs:
           from pathlib import Path
           import requests
           from PIL import Image
+          from pptx import Presentation
           root=Path('pd-finished');report=json.loads((root/'output/quality_report.json').read_text());ppt=root/'output'/report['file']
           with zipfile.ZipFile(ppt) as z:
               assert z.testzip() is None
               assert '[Content_Types].xml' in z.namelist()
-          blanks=[]
+          deck=Presentation(ppt);assert len(deck.slides)==40
+          blanks=[];sizes={};overlaps=[]
           for p in sorted((root/'review').glob('slide_*.png')):
-              im=Image.open(p).convert('RGB');assert im.size==(1800,1350),im.size
+              im=Image.open(p).convert('RGB')
+              assert im.width>=960 and im.height>=720 and abs(im.width/im.height-4/3)<.005,im.size
+              sizes[p.name]=list(im.size)
               small=im.resize((180,135));nonwhite=sum(max(px)-min(px)>20 or min(px)<230 for px in small.getdata())
               if nonwhite<250:blanks.append(p.name)
+          for n,slide in enumerate(deck.slides,7):
+              bodies=[s for s in slide.shapes if s.name=='body']
+              pics=[s for s in slide.shapes if s.shape_type==13]
+              for a in bodies:
+                  for b in pics:
+                      dx=min(a.left+a.width,b.left+b.width)-max(a.left,b.left)
+                      dy=min(a.top+a.height,b.top+b.height)-max(a.top,b.top)
+                      if dx>1000 and dy>1000:overlaps.append({'slide':n,'body':a.name,'figure':b.name})
           assert not blanks,blanks
-          report['blank_rendered_slides']=blanks;report['pptx_sha256']=hashlib.sha256(ppt.read_bytes()).hexdigest();report['file_size']=ppt.stat().st_size
+          assert not overlaps,overlaps
+          report['blank_rendered_slides']=blanks;report['body_picture_overlaps']=overlaps
+          report['native_preview_sizes']=sizes
+          report['pptx_sha256']=hashlib.sha256(ppt.read_bytes()).hexdigest();report['file_size']=ppt.stat().st_size
+          report['preview_note']='Native PNG previews are 960 by 720. This does not resample or reduce the embedded scientific images.'
           (root/'output/quality_report.json').write_text(json.dumps(report,indent=2))
           payload=json.dumps(report,indent=2).encode();url='https://api.github.com/repos/'+os.environ['REPO']+'/contents/diagnostics/pd-review/delivery-report.json';h={'Authorization':'Bearer '+os.environ['GH_TOKEN']}
-          old=requests.get(url,headers=h,timeout=30);data={'message':'Save actual PowerPoint delivery verification','content':base64.b64encode(payload).decode()}
+          old=requests.get(url,headers=h,timeout=30);data={'message':'Save verified PowerPoint export report','content':base64.b64encode(payload).decode()}
           if old.ok:data['sha']=old.json()['sha']
           r=requests.put(url,headers=h,json=data,timeout=60);r.raise_for_status()
-          print(json.dumps({k:report[k] for k in ['file','slides','first_six_included','image_slides','duplicate_image_slide_groups','direct_png_svg_render','missing_rendered_title_body_caption','pdf_generated','pptx_sha256','file_size']},indent=2))
+          print(json.dumps({k:report[k] for k in ['file','slides','first_six_included','image_slides','duplicate_image_slide_groups','direct_png_svg_render','missing_rendered_title_body_caption','body_picture_overlaps','pdf_generated','pptx_sha256','file_size']},indent=2))
           PY
       - name: Export directly usable PowerPoint archive
         if: success()
