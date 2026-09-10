@@ -1,0 +1,59 @@
+name: Inspect source panels for PowerPoint correction
+on:
+  workflow_dispatch:
+  push:
+    paths: ['.github/workflows/pd-figure-finalization.yml']
+permissions:
+  contents: write
+  actions: read
+jobs:
+  inspect:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - name: Install image inspection tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends tesseract-ocr
+          python -m pip install --quiet Pillow requests
+      - name: Recover public sources and locate publication panels
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          python - <<'PY'
+          import os, io, json, zipfile, csv, subprocess, base64
+          from pathlib import Path
+          import requests
+          from PIL import Image
+          root=Path('panel-inspection');root.mkdir()
+          api='https://api.github.com/repos/'+os.environ['REPO'];auth={'Authorization':'Bearer '+os.environ['GH_TOKEN']}
+          r=requests.get(api+'/actions/artifacts/10145069406/zip',headers=auth,timeout=120);r.raise_for_status()
+          with zipfile.ZipFile(io.BytesIO(r.content)) as z:
+              for e in z.infolist():
+                  name=Path(e.filename).name
+                  if name and not e.is_dir():
+                      (root/name).write_bytes(z.read(e))
+          names=['tnik_fig1','tnik_fig2','pockets_fig3','antibiotics_fig1','antibiotics_fig2','wong_fig3','wong_fig5','cellpaint_fig1','af3_fig1','af3_fig3']
+          selected=[];sizes={}
+          for name in names:
+              matches=list(root.glob(name+'.*'))
+              matches=[p for p in matches if p.suffix.lower() in ('.png','.jpg','.jpeg')]
+              if not matches:continue
+              p=matches[0];im=Image.open(p);sizes[name]=list(im.size);selected.append(p.resolve())
+          (root/'inputs.txt').write_text('\n'.join(map(str,selected)))
+          subprocess.run(['tesseract',str(root/'inputs.txt'),str(root/'source-text'),'--psm','11','tsv'],check=True,timeout=150)
+          pages={str(i+1):{'name':p.stem,'size':sizes[p.stem],'words':[]} for i,p in enumerate(selected)}
+          with (root/'source-text.tsv').open() as f:
+              for a in csv.DictReader(f,delimiter='\t'):
+                  t=a.get('text','').strip()
+                  if t and float(a.get('conf','-1'))>=35:
+                      pages[a['page_num']]['words'].append({'t':t,'x':int(a['left']),'y':int(a['top']),'w':int(a['width']),'h':int(a['height'])})
+          report={'source_images':pages,'all_available_files':[p.name for p in root.iterdir() if p.suffix.lower() in ('.png','.jpg','.pptx')], 'privacy':'Only public-source generated material; no original user presentations.'}
+          payload=json.dumps(report,ensure_ascii=False,indent=2).encode();(root/'source-panels.json').write_bytes(payload)
+          url=api+'/contents/diagnostics/pd-review/source-panels.json';old=requests.get(url,headers=auth,timeout=30)
+          data={'message':'Record source figure panel locations','content':base64.b64encode(payload).decode()}
+          if old.ok:data['sha']=old.json()['sha']
+          rr=requests.put(url,headers=auth,json=data,timeout=60);rr.raise_for_status()
+          print(json.dumps({'sources':sizes,'available':report['all_available_files']},indent=2))
+          PY
