@@ -1,0 +1,33 @@
+name: Inspect existing public-source slide images
+on:
+  workflow_dispatch:
+  push:
+    paths: ['.github/workflows/inspect-public-slide-images.yml']
+permissions:
+  contents: read
+jobs:
+  review:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - run: npm install --no-audit --no-fund pdf-lib
+      - run: |
+          mkdir -p review
+          node --input-type=module <<'JS'
+          import fs from 'node:fs';
+          import {PDFDocument} from 'pdf-lib';
+          const pdf=await PDFDocument.create();
+          for(let n=7;n<=46;n+=6){
+            const u='https://raw.githubusercontent.com/GUOAOXIN1/projects/main/diagnostics/pd-review/sheet_'+String(n).padStart(2,'0')+'.jpg';
+            const r=await fetch(u); if(!r.ok)throw Error(r.status+' '+u);
+            const im=await pdf.embedJpg(new Uint8Array(await r.arrayBuffer()));
+            const page=pdf.addPage([812,918]);page.drawImage(im,{x:0,y:0,width:812,height:918});
+          }
+          fs.writeFileSync('review/inspection.pdf',await pdf.save());
+          JS
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: existing-slide-image-inspection
+          path: review/inspection.pdf
+          compression-level: 0
+          retention-days: 3
