@@ -1,0 +1,29 @@
+name: Public RNA figures
+on:
+  push:
+    paths: ['.github/workflows/public-rna-figures.yml']
+permissions:
+  contents: read
+jobs:
+  download:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 4
+    steps:
+      - name: Retrieve published figures
+        run: |
+          python3 - <<'PY'
+          import urllib.request, pathlib, json
+          p=pathlib.Path('public-rna');p.mkdir()
+          sources=[]
+          for n in (4,5):
+              u=f'https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41467-025-57852-0/MediaObjects/41467_2025_57852_Fig{n}_HTML.png'
+              with urllib.request.urlopen(u,timeout=45) as r:d=r.read()
+              assert d[:8]==b'\x89PNG\r\n\x1a\n'
+              f=p/f'rnamigos_fig{n}.png';f.write_bytes(d);sources.append({'file':f.name,'source':u,'doi':'10.1038/s41467-025-57852-0'})
+          (p/'sources.json').write_text(json.dumps(sources,indent=2))
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: public-rna-figures
+          path: public-rna/
+          retention-days: 3
