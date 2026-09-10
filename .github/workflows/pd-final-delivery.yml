@@ -1,0 +1,36 @@
+name: Deliver corrected unique-figure PowerPoint
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/pd-final-delivery.yml'
+      - 'pd_rebuild/finalize_delivery.py'
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: pd-final-delivery
+  cancel-in-progress: false
+jobs:
+  deliver:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Install PowerPoint and direct PNG rendering tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends libreoffice-impress python3-uno fonts-liberation2 python3-pil python3-requests python3-numpy python3-lxml python3-pptx
+      - name: Apply corrections and write the PowerPoint
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: /usr/bin/python3 pd_rebuild/finalize_delivery.py
+      - name: Export downloadable PPTX and verification record
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: AI-PD-Unique-Figures-Corrected-PowerPoint
+          path: pd-final/output/
+          retention-days: 14
+          if-no-files-found: warn
