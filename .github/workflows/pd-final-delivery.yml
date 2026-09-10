@@ -7,7 +7,7 @@ on:
       - 'pd_rebuild/finalize_delivery.py'
 permissions:
   contents: write
-  actions: read
+  actions: write
 concurrency:
   group: pd-final-delivery
   cancel-in-progress: false
@@ -17,15 +17,30 @@ jobs:
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Stop the obsolete PDF-producing run
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          python3 - <<'PY'
+          import os,requests
+          u='https://api.github.com/repos/'+os.environ['REPO']+'/actions/runs/34477810660'
+          h={'Authorization':'Bearer '+os.environ['GH_TOKEN']}
+          r=requests.get(u,headers=h);r.raise_for_status();d=r.json()
+          if d.get('path')=='.github/workflows/pd-teaching-build.yml' and d.get('status')!='completed':
+              c=requests.post(u+'/cancel',headers=h);print('Obsolete PDF run cancellation:',c.status_code)
+          PY
       - name: Install PowerPoint and direct PNG rendering tools
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y --no-install-recommends libreoffice-impress python3-uno fonts-liberation2 python3-pil python3-requests python3-numpy python3-lxml python3-pptx
+          sudo apt-get install -y --no-install-recommends libreoffice-impress python3-uno fonts-liberation2 python3-pil python3-requests python3-numpy python3-lxml python3-venv
+          /usr/bin/python3 -m venv --system-site-packages /tmp/pdtools
+          /tmp/pdtools/bin/pip install --quiet python-pptx
       - name: Apply corrections and write the PowerPoint
         env:
           GH_TOKEN: ${{ github.token }}
           REPO: ${{ github.repository }}
-        run: /usr/bin/python3 pd_rebuild/finalize_delivery.py
+        run: /tmp/pdtools/bin/python pd_rebuild/finalize_delivery.py
       - name: Export downloadable PPTX and verification record
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
