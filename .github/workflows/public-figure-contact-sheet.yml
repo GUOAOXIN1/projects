@@ -1,0 +1,61 @@
+name: Public figure inspection
+on:
+  workflow_dispatch:
+  push:
+    paths: ['.github/workflows/public-figure-contact-sheet.yml']
+permissions:
+  contents: write
+  actions: read
+jobs:
+  inspect-public-figures:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Install image tools
+        run: python -m pip -q install requests Pillow reportlab
+      - name: Inspect public-source figure archive
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import os, requests, zipfile, io, json, base64, hashlib
+          from pathlib import Path
+          from PIL import Image
+          from reportlab.pdfgen import canvas
+          from reportlab.lib.utils import ImageReader
+          root=Path('public_figures'); root.mkdir()
+          headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json'}
+          base='https://api.github.com/repos/GUOAOXIN1/projects'
+          response=requests.get(base+'/actions/artifacts/10142151178/zip',headers=headers,timeout=120)
+          response.raise_for_status()
+          with zipfile.ZipFile(io.BytesIO(response.content)) as z:
+              for item in z.infolist():
+                  path=Path(item.filename)
+                  if path.is_absolute() or '..' in path.parts: raise ValueError('Unsafe archive path')
+              z.extractall(root)
+          manifest=json.loads(next(root.rglob('provenance.json')).read_text())
+          images=[]
+          for p in sorted(root.rglob('*')):
+              if not p.is_file():continue
+              try:
+                  im=Image.open(p); im.load()
+                  if min(im.size)<100:continue
+                  images.append((p,im.copy().convert('RGB')))
+              except Exception:pass
+          out=Path('contact.pdf'); c=canvas.Canvas(str(out),pagesize=(1440,1080))
+          for n,(p,im) in enumerate(images):
+              k=n%4
+              if k==0 and n:c.showPage()
+              x=30+(k%2)*720; y=1045-(k//2)*540
+              c.setFont('Helvetica',16);c.drawString(x,y,p.name+' | '+str(im.size))
+              w,h=im.size; scale=min(675/w,475/h)
+              c.drawImage(ImageReader(im),x+(675-w*scale)/2,y-30-h*scale,w*scale,h*scale)
+          c.save()
+          report={'scope':'Public journal/PDB material only. No uploaded course presentations.','images':[{'file':p.name,'width':im.width,'height':im.height,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p,im in images],'retrieval':manifest}
+          for path,data in [('diagnostics/public-figures.json',json.dumps(report,indent=2).encode()),('diagnostics/public-figures-review.pdf',out.read_bytes())]:
+              r=requests.get(base+'/contents/'+path,headers=headers,timeout=30)
+              body={'message':'Save public-source figure inspection output','content':base64.b64encode(data).decode()}
+              if r.status_code==200:body['sha']=r.json()['sha']
+              r=requests.put(base+'/contents/'+path,headers=headers,json=body,timeout=90);r.raise_for_status()
+          print('PUBLIC FIGURES CHECKED',len(images))
+          PY
