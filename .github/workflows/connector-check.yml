@@ -1,0 +1,39 @@
+name: Connector execution check
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/connector-check.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  verify-execution:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Verify Python execution and local file editing
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import os
+          import tempfile
+          from pathlib import Path
+
+          with tempfile.TemporaryDirectory() as directory:
+              path = Path(directory) / 'synthetic-check.txt'
+              path.write_text('created', encoding='utf-8')
+              assert path.read_text(encoding='utf-8') == 'created'
+              path.write_text('edited and verified', encoding='utf-8')
+              assert path.read_text(encoding='utf-8') == 'edited and verified'
+          print('PASS: Python execution and file create/edit/read operations.')
+          Path(os.environ['GITHUB_STEP_SUMMARY']).write_text(
+              '## Execution check passed\n\n'
+              'Python execution and synthetic local file creation, editing, and reading succeeded.\n\n'
+              'No uploaded documents or course materials were used.\n\n'
+              'PowerPoint processing, document transfer, and PDF rendering are not tested by this workflow.\n',
+              encoding='utf-8',
+          )
+          PY
